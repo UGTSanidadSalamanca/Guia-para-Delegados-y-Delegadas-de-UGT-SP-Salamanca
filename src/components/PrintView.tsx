@@ -12,6 +12,14 @@ export function PrintView({ onBack }: { onBack: () => void }) {
     window.scrollTo(0, 0);
   }, []);
 
+  const isInIframe = typeof window !== 'undefined' && window.self !== window.top;
+
+  const handleOpenNewTab = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set('print', 'true');
+    window.open(url.toString(), '_blank');
+  };
+
   return (
     <div className="bg-zinc-100 min-h-screen font-sans">
       <style>{`
@@ -47,12 +55,23 @@ export function PrintView({ onBack }: { onBack: () => void }) {
            <span className="text-zinc-300 text-xs font-bold uppercase tracking-wider">Ajuste de Impresión: Activar "Gráficos de fondo" / "Background Graphics" y Márgenes por Defecto.</span>
         </div>
 
-        <button 
-          onClick={() => window.print()} 
-          className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 border-2 border-red-600 font-black uppercase tracking-widest flex items-center gap-3 transition-colors shadow-[4px_4px_0_#fff]"
-        >
-          <Icon name="FileText" /> Imprimir / Guardar PDF
-        </button>
+        <div className="flex items-center gap-3">
+          {isInIframe && (
+            <button 
+              onClick={handleOpenNewTab} 
+              className="bg-white hover:bg-zinc-100 text-zinc-900 px-6 py-3 border-2 border-zinc-900 font-bold uppercase tracking-widest flex items-center gap-3 transition-colors shadow-[4px_4px_0_#999]"
+            >
+              <Icon name="Smartphone" className="w-5 h-5 rotate-90" /> Abrir en ventana nueva
+            </button>
+          )}
+          
+          <button 
+            onClick={() => window.print()} 
+            className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 border-2 border-red-600 font-black uppercase tracking-widest flex items-center gap-3 transition-colors shadow-[4px_4px_0_#fff]"
+          >
+            <Icon name="FileText" /> Imprimir / Guardar PDF
+          </button>
+        </div>
       </div>
 
       {/* DOCUMENT CONTAINER */}

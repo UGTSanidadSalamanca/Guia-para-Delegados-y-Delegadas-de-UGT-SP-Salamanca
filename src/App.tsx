@@ -14,7 +14,13 @@ import { useLocalStorage } from './hooks/useLocalStorage';
 type SectionId = 'dashboard' | string | 'checklist' | 'modelos' | 'faq' | 'flujo' | 'matriz' | 'emergencias' | 'directorio';
 
 export default function App() {
-  const [currentSection, setCurrentSection] = useState<SectionId>('dashboard');
+  const [currentSection, setCurrentSection] = useState<SectionId>(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('print') === 'true') return 'print' as any;
+    }
+    return 'dashboard';
+  });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPrinting, setIsPrinting] = useState(false);
   const [isPrintingTriptico, setIsPrintingTriptico] = useState(false);
