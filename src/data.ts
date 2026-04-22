@@ -551,8 +551,7 @@ export const resourcesData: ResourceCategory[] = [
     links: [
       { titulo: "UGT Salamanca (Unión Provincial)", url: "https://ugtcyl.es/web/uniones/ugt-salamanca" },
       { titulo: "UGT Servicios Públicos Castilla y León", url: "https://castillayleon.ugt-sp.es/" },
-      { titulo: "Sección Sindical UGT - Diputación de Salamanca", url: "https://transparencia.lasalina.es/opencms/opencms/transparencia/organigramaylegislacion/sindicatos/ugt.html" },
-      { titulo: "UGT-SP Sector Sanidad", url: "https://ugt-sp.es/sectores/sanidad/" }
+      { titulo: "Sección Sindical UGT - Diputación de Salamanca", url: "https://transparencia.lasalina.es/opencms/opencms/transparencia/organigramaylegislacion/sindicatos/ugt.html" }
     ]
   },
   {
