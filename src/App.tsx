@@ -9,6 +9,7 @@ import {
 } from './components/Views';
 import { PrintView } from './components/PrintView';
 import { TripticoView } from './components/TripticoView';
+import { useLocalStorage } from './hooks/useLocalStorage';
 
 type SectionId = 'dashboard' | string | 'checklist' | 'modelos' | 'faq' | 'flujo' | 'matriz' | 'emergencias' | 'directorio';
 
@@ -18,6 +19,7 @@ export default function App() {
   const [isPrinting, setIsPrinting] = useState(false);
   const [isPrintingTriptico, setIsPrintingTriptico] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isDarkMode, setIsDarkMode] = useLocalStorage('ugt_dark_mode', false);
 
   const menuItems = [
     { id: 'dashboard', title: 'Inicio / Reglas de Oro', icon: 'LayoutDashboard' },
@@ -63,7 +65,10 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-100 font-sans text-zinc-900 flex">
+    <div className={[
+      "min-h-screen font-sans flex transition-colors duration-300",
+      isDarkMode ? "bg-zinc-950 text-zinc-100 dark" : "bg-zinc-100 text-zinc-900"
+    ].join(" ")}>
       {/* Mobile Sidebar Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
@@ -78,18 +83,27 @@ export default function App() {
       </AnimatePresence>
 
       <div className={[
-        "fixed inset-y-0 left-0 z-50 w-72 bg-white text-zinc-900 transform transition-transform duration-500 ease-in-out flex flex-col shadow-2xl flex-shrink-0 md:static md:w-80 md:translate-x-0 border-r border-zinc-100",
+        "fixed inset-y-0 left-0 z-50 w-72 transform transition-transform duration-500 ease-in-out flex flex-col shadow-2xl flex-shrink-0 md:static md:w-80 md:translate-x-0 border-r",
+        isDarkMode ? "bg-zinc-900 border-zinc-800" : "bg-white border-zinc-100",
         isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
       ].join(" ")}>
-        <div className="p-8 bg-white">
+        <div className={["p-8", isDarkMode ? "bg-zinc-900" : "bg-white"].join(" ")}>
           <div className="flex items-start justify-between">
-            <h1 className="text-2xl font-bold tracking-tight text-zinc-900 leading-tight">
+            <h1 className={["text-2xl font-bold tracking-tight leading-tight", isDarkMode ? "text-white" : "text-zinc-900"].join(" ")}>
               Guía del <br/><span className="text-red-600 font-black">Delegado UGT</span>
               <span className="text-zinc-400 block mt-1 text-xs font-medium uppercase tracking-widest">Manual de Supervivencia</span>
             </h1>
-            <button className="md:hidden text-zinc-400 hover:text-zinc-900 p-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
-              <Icon name="X" className="w-6 h-6" />
-            </button>
+            <div className="flex items-center gap-2">
+              <button 
+                onClick={() => setIsDarkMode(!isDarkMode)}
+                className={["p-2 rounded-xl transition-colors", isDarkMode ? "bg-zinc-800 text-yellow-400 hover:bg-zinc-700" : "bg-zinc-100 text-zinc-500 hover:bg-zinc-200"].join(" ")}
+              >
+                <Icon name={isDarkMode ? "Star" : "Star"} className="w-5 h-5" />
+              </button>
+              <button className="md:hidden text-zinc-400 hover:text-zinc-900 p-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+                <Icon name="X" className="w-6 h-6" />
+              </button>
+            </div>
           </div>
         </div>
 
@@ -101,7 +115,12 @@ export default function App() {
               placeholder="Buscar sección..." 
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-zinc-100 border-none rounded-2xl py-3 pl-11 pr-4 text-sm font-medium focus:ring-2 focus:ring-red-100 focus:bg-white transition-all outline-none"
+              className={[
+                "w-full border-none rounded-2xl py-3 pl-11 pr-4 text-sm font-medium transition-all outline-none",
+                isDarkMode 
+                  ? "bg-zinc-800 text-white focus:ring-2 focus:ring-red-900/30 focus:bg-zinc-700 placeholder-zinc-500" 
+                  : "bg-zinc-100 text-zinc-900 focus:ring-2 focus:ring-red-100 focus:bg-white placeholder-zinc-500"
+              ].join(" ")}
             />
           </div>
         </div>
@@ -116,11 +135,11 @@ export default function App() {
                 className={[
                   "w-full flex items-center gap-3 px-4 py-3 text-left transition-all duration-200 font-bold text-sm rounded-xl",
                   isActive 
-                    ? "bg-red-50 text-red-600 shadow-sm shadow-red-100" 
-                    : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
+                    ? "bg-red-50 dark:bg-red-950/30 text-red-600 dark:text-red-400 shadow-sm shadow-red-100 dark:shadow-none" 
+                    : "text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white"
                 ].join(" ")}
               >
-                <Icon name={item.icon as any} className={["w-5 h-5 flex-shrink-0 transition-colors", isActive ? "text-red-600" : "text-zinc-400"].join(" ")} />
+                <Icon name={item.icon as any} className={["w-5 h-5 flex-shrink-0 transition-colors", isActive ? "text-red-600 dark:text-red-400" : "text-zinc-400 dark:text-zinc-500"].join(" ")} />
                 <span>{item.title}</span>
               </button>
             );
@@ -136,7 +155,7 @@ export default function App() {
           <div className="mt-8 pt-6 border-t border-zinc-100 space-y-2 pb-4">
             <button 
               onClick={() => { setIsMobileMenuOpen(false); setIsPrinting(true); }}
-              className="w-full flex items-center justify-center gap-3 bg-red-600 hover:bg-red-700 text-white p-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-red-200"
+              className="w-full flex items-center justify-center gap-3 bg-red-600 hover:bg-red-700 text-white p-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-red-200 dark:shadow-none"
             >
               <Icon name="FileText" className="w-5 h-5" />
               <span>Manual Completo (PDF)</span>
@@ -146,7 +165,7 @@ export default function App() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-3 bg-zinc-900 hover:bg-black text-white p-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-zinc-200"
+              className="w-full flex items-center justify-center gap-3 bg-zinc-900 dark:bg-black hover:bg-black text-white p-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-zinc-200 dark:shadow-none border border-transparent dark:border-zinc-800"
             >
               <Icon name="Map" className="w-5 h-5" />
               <span>Descargar Tríptico (Google Drive)</span>
@@ -154,7 +173,7 @@ export default function App() {
           </div>
         </nav>
         
-        <div className="p-8 bg-zinc-50/50 border-t border-zinc-100 flex flex-col gap-1">
+        <div className={["p-8 flex flex-col gap-1 border-t", isDarkMode ? "bg-zinc-800/10 border-zinc-800" : "bg-zinc-50/50 border-zinc-100"].join(" ")}>
           <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">UGT Servicios Públicos</p>
           <p className="text-sm font-black text-red-600">Salamanca</p>
         </div>
@@ -163,14 +182,17 @@ export default function App() {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Mobile Header */}
-        <header className="md:hidden bg-white/80 backdrop-blur-md border-b border-zinc-100 p-4 flex items-center justify-between sticky top-0 z-30">
+        <header className={[
+          "md:hidden backdrop-blur-md border-b p-4 flex items-center justify-between sticky top-0 z-30 transition-colors",
+          isDarkMode ? "bg-zinc-950/80 border-zinc-800" : "bg-white/80 border-zinc-100"
+        ].join(" ")}>
           <div className="flex items-center gap-3">
              <div className="bg-red-600 text-white font-black px-2 py-1 rounded text-xs">UGT</div>
-             <h1 className="font-bold text-lg tracking-tight text-zinc-900 leading-tight">Guía<span className="text-red-600 font-black">Delegado</span></h1>
+             <h1 className={["font-bold text-lg tracking-tight leading-tight", isDarkMode ? "text-white" : "text-zinc-900"].join(" ")}>Guía<span className="text-red-600 font-black">Delegado</span></h1>
           </div>
           <button 
             onClick={() => setIsMobileMenuOpen(true)}
-            className="p-2 text-zinc-500 hover:bg-zinc-100 rounded-lg transition-colors"
+            className={["p-2 rounded-lg transition-colors", isDarkMode ? "text-zinc-400 hover:bg-zinc-800" : "text-zinc-500 hover:bg-zinc-100"].join(" ")}
           >
             <Icon name="Menu" className="w-6 h-6" />
           </button>

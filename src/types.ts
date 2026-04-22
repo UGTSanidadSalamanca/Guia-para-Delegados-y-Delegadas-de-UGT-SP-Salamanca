@@ -84,3 +84,19 @@ export interface DirectoryData {
   sectors: DirectoryContact[];
   transversal: DirectoryContact[];
 }
+
+export interface CrisisOption {
+  label: string;
+  nextStepId: string;
+}
+
+export interface CrisisStep {
+  id: string;
+  question?: string;
+  title: string;
+  description: string;
+  actions: string[];
+  templateId?: string;
+  options?: CrisisOption[];
+  isFinal?: boolean;
+}

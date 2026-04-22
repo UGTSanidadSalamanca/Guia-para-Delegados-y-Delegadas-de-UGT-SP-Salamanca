@@ -1,5 +1,5 @@
 import { 
-  GoldenRule, ModuleData, ChecklistPhase, TemplateData, FAQData, MatrixRow, RightsLimitRow, FlowStep
+  GoldenRule, ModuleData, ChecklistPhase, TemplateData, FAQData, MatrixRow, RightsLimitRow, FlowStep, CrisisStep
 } from './types';
 
 export const goldenRules: GoldenRule[] = [
@@ -436,3 +436,68 @@ export const directoryData = {
     { name: "Salud Laboral", email: "saludlaboral.salamanca@ugt-sp.ugt.org" }
   ]
 };
+
+export const crisisSteps: CrisisStep[] = [
+  {
+    id: 'start',
+    title: '¿Qué ha sucedido?',
+    description: 'Selecciona la situación para recibir instrucciones inmediatas.',
+    actions: [],
+    options: [
+      { label: 'Carta de Despido / Sanción', nextStepId: 'despido' },
+      { label: 'Modificación de Horario / Turno', nextStepId: 'horario' },
+      { label: 'Accidente Laboral', nextStepId: 'accidente' },
+      { label: 'Acoso o Conflicto Grave', nextStepId: 'acoso' }
+    ]
+  },
+  {
+    id: 'despido',
+    title: 'Protocolo ante Despido/Sanción',
+    description: 'Actúa con calma. Tu firma con reservas es tu mejor defensa inicial.',
+    actions: [
+      'Escribe "NO CONFORME" junto a tu firma obligatoriamente.',
+      'Pon la FECHA Y HORA real del momento de la firma.',
+      'Pide una copia de todo lo que firmes. Si se niegan, no firmes nada.',
+      'No des explicaciones ni reconozcas hechos en ese momento.'
+    ],
+    templateId: 'req-vulneracion',
+    isFinal: true
+  },
+  {
+    id: 'horario',
+    title: 'Modificación de Condiciones',
+    description: 'La empresa debe seguir un procedimiento legal (Art. 41 ET).',
+    actions: [
+      'Solicita la notificación por escrito si ha sido verbal.',
+      'Comprueba si se han dado los 15 días de preaviso legal.',
+      'No firmes la aceptación sin consultar antes con el sindicato.',
+      'Documenta cómo afecta este cambio a tu conciliación.'
+    ],
+    templateId: 'req-info',
+    isFinal: true
+  },
+  {
+    id: 'accidente',
+    title: 'Urgencia: Accidente Laboral',
+    description: 'La prioridad es la salud y la seguridad jurídica posterior.',
+    actions: [
+      'Asegúrate de que el trabajador recibe asistencia médica inmediata.',
+      'Llama a Salud Laboral de UGT Salamanca inmediatamente.',
+      'Haz fotos del lugar del accidente y recoge nombres de testigos.',
+      'Verifica si se ha avisado a la Inspección de Trabajo si es grave.'
+    ],
+    isFinal: true
+  },
+  {
+    id: 'acoso',
+    title: 'Protocolo de Acoso/Conflicto',
+    description: 'Protege a la víctima y blinda las pruebas.',
+    actions: [
+      'Activa el Protocolo de Acoso de la empresa de inmediato.',
+      'Informa a la Federación de UGT de forma confidencial.',
+      'Recomienda a la persona afectada que no borre ningún mensaje/email.',
+      'Evita confrontaciones directas sin presencia de otro delegado.'
+    ],
+    isFinal: true
+  }
+];
