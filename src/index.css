@@ -41,4 +41,15 @@ body {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
+  header, footer {
+    display: none !important;
+  }
+  .break-after-page {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+  .break-inside-avoid {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
 }

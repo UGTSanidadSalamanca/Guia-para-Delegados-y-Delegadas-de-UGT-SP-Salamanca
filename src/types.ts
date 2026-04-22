@@ -3,7 +3,7 @@ export type IconName =
   | 'ClipboardCheck' | 'FileText' | 'MessageCircleQuestion' 
   | 'Eye' | 'Archive' | 'Network' | 'UserPlus' | 'CheckCircle2' | 'Circle' | 'Copy' | 'Check' | 'ChevronDown' | 'ChevronRight' | 'Menu' | 'X' | 'LayoutDashboard'
   | 'GitMerge' | 'Table2' | 'ShieldAlert' | 'ArrowDown'
-  | 'AlertTriangle' | 'Timer' | 'Phone' | 'Mail' | 'MapPin' | 'Activity' | 'FileWarning' | 'Shield';
+  | 'AlertTriangle' | 'Timer' | 'Phone' | 'Mail' | 'MapPin' | 'Activity' | 'FileWarning' | 'Shield' | 'Printer' | 'Smartphone';
 
 export interface GoldenRule {
   id: string;
