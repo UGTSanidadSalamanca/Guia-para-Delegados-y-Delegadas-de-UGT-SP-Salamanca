@@ -16,6 +16,8 @@ export default function App() {
   const [currentSection, setCurrentSection] = useState<SectionId>('dashboard');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPrinting, setIsPrinting] = useState(false);
+  const [isPrintingTriptico, setIsPrintingTriptico] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const menuItems = [
     { id: 'dashboard', title: 'Inicio / Reglas de Oro', icon: 'LayoutDashboard' },
@@ -28,6 +30,10 @@ export default function App() {
     { id: 'emergencias', title: '🚨 Banderas Rojas', icon: 'AlertTriangle' },
     { id: 'directorio', title: '📞 Directorio Salamanca', icon: 'Phone' },
   ] as const;
+
+  const filteredMenuItems = menuItems.filter(item => 
+    item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const navigate = (id: SectionId) => {
     setCurrentSection(id);
@@ -50,6 +56,10 @@ export default function App() {
 
   if (isPrinting) {
     return <PrintView onBack={() => setIsPrinting(false)} />;
+  }
+
+  if (isPrintingTriptico) {
+    return <TripticoView onBack={() => setIsPrintingTriptico(false)} />;
   }
 
   return (
@@ -83,8 +93,21 @@ export default function App() {
           </div>
         </div>
 
+        <div className="px-6 mb-6">
+          <div className="relative group">
+            <Icon name="Search" className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-400 group-focus-within:text-red-500 transition-colors" />
+            <input 
+              type="text" 
+              placeholder="Buscar sección..." 
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full bg-zinc-100 border-none rounded-2xl py-3 pl-11 pr-4 text-sm font-medium focus:ring-2 focus:ring-red-100 focus:bg-white transition-all outline-none"
+            />
+          </div>
+        </div>
+
         <nav className="flex-1 overflow-y-auto px-4 py-2 space-y-1 custom-scrollbar">
-          {menuItems.map((item) => {
+          {filteredMenuItems.map((item) => {
             const isActive = currentSection === item.id;
             return (
               <button
@@ -102,25 +125,29 @@ export default function App() {
               </button>
             );
           })}
+
+          {filteredMenuItems.length === 0 && (
+            <div className="p-8 text-center text-zinc-400">
+              <Icon name="SearchX" className="w-8 h-8 mx-auto mb-2 opacity-20" />
+              <p className="text-xs font-bold uppercase tracking-widest">Sin resultados</p>
+            </div>
+          )}
           
-          <div className="mt-8 pt-6 border-t border-zinc-100 space-y-2">
+          <div className="mt-8 pt-6 border-t border-zinc-100 space-y-2 pb-4">
             <button 
               onClick={() => { setIsMobileMenuOpen(false); setIsPrinting(true); }}
               className="w-full flex items-center justify-center gap-3 bg-red-600 hover:bg-red-700 text-white p-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-red-200"
             >
               <Icon name="FileText" className="w-5 h-5" />
-              <span>Descargar PDF (A4)</span>
+              <span>Manual Completo (PDF)</span>
             </button>
-            <a 
-              href="https://drive.google.com/file/d/1fADtMYZCTdJMUa1_WnTPwdfZJ9UnJkqX/view?usp=drive_link"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-3 bg-zinc-50 hover:bg-zinc-100 text-zinc-600 p-3 rounded-xl font-bold text-xs transition-colors border border-zinc-200"
+            <button 
+              onClick={() => { setIsMobileMenuOpen(false); setIsPrintingTriptico(true); }}
+              className="w-full flex items-center justify-center gap-3 bg-zinc-900 hover:bg-black text-white p-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-zinc-200"
             >
               <Icon name="Map" className="w-5 h-5" />
-              <span>Descargar Tríptico</span>
-            </a>
+              <span>Ver/Imprimir Tríptico</span>
+            </button>
           </div>
         </nav>
         
