@@ -25,26 +25,28 @@ export function TripticoView({ onBack }: { onBack: () => void }) {
       `}</style>
 
       {/* CONTROL BAR (NON-PRINTABLE) */}
-      <div className="print:hidden bg-zinc-900 border-b-4 border-red-600 p-4 sticky top-0 z-50 flex flex-col md:flex-row justify-between items-center gap-4 shadow-2xl">
+      <div className="print:hidden bg-white/80 backdrop-blur-md border-b border-zinc-100 p-6 sticky top-0 z-50 flex flex-col md:flex-row justify-between items-center gap-6 shadow-xl shadow-zinc-200/50">
         <button 
           onClick={onBack} 
-          className="text-white hover:text-red-400 font-bold uppercase tracking-widest flex items-center gap-2 transition-colors text-sm"
+          className="text-zinc-500 hover:text-red-600 font-bold flex items-center gap-2 transition-all p-2 rounded-xl hover:bg-zinc-50"
         >
-          <Icon name="ChevronRight" className="w-5 h-5 rotate-180" /> Volver a la App
+          <Icon name="ChevronRight" className="w-5 h-5 rotate-180" /> 
+          <span className="text-sm">Volver a la Guía</span>
         </button>
         
-        <div className="flex items-center gap-4 bg-zinc-800 p-2 rounded">
-           <Icon name="AlertTriangle" className="text-yellow-400 w-5 h-5 shrink-0" />
-           <span className="text-zinc-300 text-xs font-bold uppercase tracking-wider">
-             Ajustes Impresión: Orientación <strong>HORIZONTAL</strong> / Márgenes <strong>NINGUNO</strong> / Gráficos de fondo <strong>SÍ</strong>.
+        <div className="flex items-center gap-4 bg-zinc-50 p-4 rounded-2xl border border-zinc-100">
+           <Icon name="AlertTriangle" className="text-red-500 w-5 h-5 shrink-0" />
+           <span className="text-zinc-500 text-xs font-medium">
+             <strong className="text-zinc-900">Ajustes de Impresión:</strong> Orientación <span className="text-red-600 font-bold uppercase">Horizontal</span>, Márgenes <span className="text-red-600 font-bold uppercase">Ninguno</span> y Gráficos de fondo <span className="text-red-600 font-bold uppercase">Activados</span>.
            </span>
         </div>
 
         <button 
           onClick={() => window.print()} 
-          className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 border-2 border-red-600 font-black uppercase tracking-widest flex items-center gap-3 transition-colors shadow-[4px_4px_0_#fff]"
+          className="bg-red-600 hover:bg-red-700 text-white px-10 py-4 rounded-2xl font-bold flex items-center gap-3 transition-all shadow-lg shadow-red-200 active:scale-95"
         >
-          <Icon name="Printer" /> Imprimir Tríptico
+          <Icon name="Printer" className="w-5 h-5" />
+          <span>Imprimir Tríptico</span>
         </button>
       </div>
 
@@ -53,14 +55,17 @@ export function TripticoView({ onBack }: { onBack: () => void }) {
         {/* ======================================= */}
         {/* HOJA 1: CARA EXTERIOR (Dorsos y Portada) */}
         {/* ======================================= */}
-        <div className="bg-white w-[297mm] h-[210mm] grid grid-cols-3 break-after-page shadow-2xl print:shadow-none overflow-hidden relative border border-zinc-200 print:border-none">
+        <div className="bg-white w-[297mm] h-[210mm] grid grid-cols-3 break-after-page shadow-2xl print:shadow-none overflow-hidden relative rounded-[2.5rem] print:rounded-none border border-zinc-100 print:border-none">
            {/* Fold lines guides ONLY for screen */}
-           <div className="absolute left-[99mm] top-0 bottom-0 w-[1px] border-l border-dashed border-zinc-300 print:border-transparent z-10"></div>
-           <div className="absolute left-[198mm] top-0 bottom-0 w-[1px] border-l border-dashed border-zinc-300 print:border-transparent z-10"></div>
+           <div className="absolute left-[99mm] top-0 bottom-0 w-[1px] border-l border-dashed border-zinc-100 print:border-transparent z-10"></div>
+           <div className="absolute left-[198mm] top-0 bottom-0 w-[1px] border-l border-dashed border-zinc-100 print:border-transparent z-10"></div>
 
            {/* COLUMN 1: PALA IZQUIERDA (Dorso/Solapa que cierra) - DIRECTORIO Y QR */}
-           <div className="p-8 flex flex-col h-full bg-zinc-50 border-r border-zinc-200">
-              <h2 className="text-xl font-black uppercase tracking-tight text-red-600 mb-6 border-b-2 border-red-600 pb-2">Contacto Local</h2>
+           <div className="p-10 flex flex-col h-full bg-zinc-50 border-r border-zinc-100">
+              <h2 className="text-xl font-bold tracking-tight text-red-600 mb-8 border-b border-red-100 pb-4 flex items-center gap-3">
+                <div className="w-1.5 h-6 bg-red-600 rounded-full" />
+                Contacto Local
+              </h2>
               
               <div className="mb-6 space-y-2 text-sm font-bold text-zinc-800">
                  <p className="font-black text-lg text-zinc-900 leading-none">{directoryData.main.name}</p>
@@ -78,26 +83,28 @@ export function TripticoView({ onBack }: { onBack: () => void }) {
               </div>
 
               {/* QR PLACEHOLDER */}
-              <div className="mt-8 border-4 border-dashed border-zinc-900 p-4 bg-white text-center flex flex-col items-center justify-center min-h-[160px]">
-                 <Icon name="Smartphone" className="w-8 h-8 text-zinc-400 mb-2" />
-                 <p className="text-xs font-black uppercase tracking-tighter text-zinc-900 leading-tight">ESCANEA PARA ABRIR<br/>LA VERSIÓN DIGITAL</p>
-                 <div className="w-24 h-24 border-2 border-zinc-200 mt-2 flex items-center justify-center">
-                    <span className="text-[10px] text-zinc-400 font-bold uppercase text-center">Pegar<br/>QR Code<br/>Aquí</span>
+              <div className="mt-8 bg-white p-8 rounded-3xl border-2 border-zinc-200 border-dashed text-center flex flex-col items-center justify-center min-h-[160px] shadow-sm">
+                 <div className="bg-zinc-50 p-4 rounded-2xl mb-4">
+                    <Icon name="Smartphone" className="w-8 h-8 text-zinc-400" />
+                 </div>
+                 <p className="text-xs font-bold text-zinc-900 leading-tight">ESCANEA PARA ABRIR<br/>LA VERSIÓN DIGITAL</p>
+                 <div className="w-24 h-24 border border-zinc-100 mt-4 flex items-center justify-center bg-zinc-50 rounded-xl">
+                    <span className="text-[10px] text-zinc-300 font-bold uppercase text-center">Pegar<br/>QR Code</span>
                  </div>
               </div>
            </div>
 
            {/* COLUMN 2: PALA CENTRAL (Contraportada) - REGLAS DE ORO */}
-           <div className="p-8 flex flex-col h-full bg-zinc-900 text-white">
-              <h2 className="text-xl font-black uppercase tracking-widest text-white mb-8 border-b-2 border-zinc-700 pb-2">Reglas de Oro</h2>
+           <div className="p-10 flex flex-col h-full bg-zinc-900 text-white">
+              <h2 className="text-xl font-bold tracking-tight text-white mb-10 border-b border-zinc-800 pb-4">Cuatro Reglas de Oro</h2>
               
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {goldenRules.map((rule, idx) => (
                   <div key={idx} className="flex gap-4">
-                    <span className="text-3xl font-black text-red-600 leading-none">{String(idx + 1).padStart(2, '0')}</span>
+                    <span className="text-2xl font-black text-red-600 leading-none">{String(idx + 1).padStart(2, '0')}</span>
                     <div>
-                      <h3 className="font-black uppercase tracking-tight text-sm mb-1">{rule.title}</h3>
-                      <p className="text-xs text-zinc-400 font-bold leading-tight">{rule.description}</p>
+                      <h3 className="font-bold text-sm mb-1">{rule.title}</h3>
+                      <p className="text-xs text-zinc-400 font-medium leading-relaxed">{rule.description}</p>
                     </div>
                   </div>
                 ))}
@@ -110,25 +117,25 @@ export function TripticoView({ onBack }: { onBack: () => void }) {
            </div>
 
            {/* COLUMN 3: PALA DERECHA (Portada) */}
-           <div className="p-8 flex flex-col h-full bg-white relative">
-              <div className="w-16 h-16 bg-red-600 text-white font-black text-2xl flex items-center justify-center mb-12">
+           <div className="p-14 flex flex-col h-full bg-white relative">
+              <div className="w-16 h-16 bg-red-600 text-white font-black text-2xl flex items-center justify-center mb-12 rounded-2xl shadow-xl shadow-red-200">
                  UGT
               </div>
               
               <div className="mt-12">
-                 <h1 className="text-[3rem] font-black uppercase tracking-tighter leading-[0.85] text-zinc-900 mb-6">
-                   Manual<br/>de Acción<br/><span className="text-red-600">Sindical</span>
+                 <h1 className="text-[3.5rem] font-black tracking-tight leading-[1] text-zinc-900 mb-8">
+                   Manual de<br/>Acción<br/><span className="text-red-600">Sindical</span>
                  </h1>
-                 <div className="border-l-4 border-red-600 pl-4">
-                   <h2 className="text-lg font-bold uppercase tracking-widest text-zinc-500 leading-snug">
-                     Guía Rápida del<br/>Delegado y Delegada
-                   </h2>
+                 <div className="border-l-4 border-red-600 pl-6">
+                    <h2 className="text-xl font-bold text-zinc-400 leading-tight">
+                      Guía Rápida del<br/>Delegado y Delegada
+                    </h2>
                  </div>
               </div>
 
-              <div className="mt-auto border-t-4 border-zinc-900 pt-6">
-                 <p className="font-black text-xl uppercase tracking-tighter leading-none text-zinc-900">Servicios Públicos</p>
-                 <p className="font-black text-red-600 uppercase tracking-widest text-sm mt-1">Salamanca</p>
+              <div className="mt-auto border-t-2 border-zinc-100 pt-8">
+                 <p className="font-bold text-2xl tracking-tight text-zinc-900">Servicios Públicos</p>
+                 <p className="font-black text-red-600 uppercase tracking-widest text-sm mt-2">Salamanca</p>
               </div>
            </div>
         </div>
@@ -136,16 +143,16 @@ export function TripticoView({ onBack }: { onBack: () => void }) {
         {/* ======================================= */}
         {/* HOJA 2: CARA INTERIOR (El contenido rudo) */}
         {/* ======================================= */}
-        <div className="bg-white w-[297mm] h-[210mm] grid grid-cols-3 break-after-page shadow-2xl print:shadow-none overflow-hidden relative border border-zinc-200 print:border-none">
+        <div className="bg-white w-[297mm] h-[210mm] grid grid-cols-3 break-after-page shadow-2xl print:shadow-none overflow-hidden relative rounded-[2.5rem] print:rounded-none border border-zinc-100 print:border-none">
            {/* Fold lines guides ONLY for screen */}
-           <div className="absolute left-[99mm] top-0 bottom-0 w-[1px] border-l border-dashed border-zinc-300 print:border-transparent z-10"></div>
-           <div className="absolute left-[198mm] top-0 bottom-0 w-[1px] border-l border-dashed border-zinc-300 print:border-transparent z-10"></div>
+           <div className="absolute left-[99mm] top-0 bottom-0 w-[1px] border-l border-dashed border-zinc-100 print:border-transparent z-10"></div>
+           <div className="absolute left-[198mm] top-0 bottom-0 w-[1px] border-l border-dashed border-zinc-100 print:border-transparent z-10"></div>
 
            {/* COLUMN 1: PALA IZQUIERDA INTERIOR - PRIMEROS PASOS */}
-           <div className="p-8 flex flex-col h-full bg-white border-r border-zinc-200">
-              <div className="flex items-center gap-2 mb-6 border-b-4 border-red-600 pb-2">
+           <div className="p-10 flex flex-col h-full bg-white border-r border-zinc-100">
+              <div className="flex items-center gap-3 mb-8 border-b border-red-100 pb-4">
                  <Icon name="Timer" className="text-red-600 w-6 h-6" />
-                 <h2 className="text-xl font-black uppercase tracking-tight text-zinc-900">Primeros Pasos</h2>
+                 <h2 className="text-xl font-bold tracking-tight text-zinc-900">Primeros Pasos</h2>
               </div>
               
               <div className="space-y-6 text-sm">
@@ -171,10 +178,10 @@ export function TripticoView({ onBack }: { onBack: () => void }) {
            </div>
 
            {/* COLUMN 2: PALA CENTRAL INTERIOR - BANDERAS ROJAS / EMERGENCIAS */}
-           <div className="p-8 flex flex-col h-full bg-zinc-100 border-r border-zinc-200">
-              <div className="flex items-center gap-2 mb-6 border-b-4 border-zinc-900 pb-2">
+           <div className="p-10 flex flex-col h-full bg-zinc-50 border-r border-zinc-100">
+              <div className="flex items-center gap-3 mb-8 border-b border-zinc-200 pb-4">
                  <Icon name="AlertTriangle" className="text-zinc-900 w-6 h-6" />
-                 <h2 className="text-xl font-black uppercase tracking-tight text-zinc-900">Banderas Rojas</h2>
+                 <h2 className="text-xl font-bold tracking-tight text-zinc-900">Protocolos</h2>
               </div>
 
               <div className="space-y-6">
@@ -211,10 +218,10 @@ export function TripticoView({ onBack }: { onBack: () => void }) {
            </div>
 
            {/* COLUMN 3: PALA DERECHA INTERIOR - DERECHOS Y GARANTÍAS */}
-           <div className="p-8 flex flex-col h-full bg-white">
-              <div className="flex items-center gap-2 mb-6 border-b-4 border-red-600 pb-2">
+           <div className="p-10 flex flex-col h-full bg-white">
+              <div className="flex items-center gap-3 mb-8 border-b border-red-100 pb-4">
                  <Icon name="Activity" className="text-red-600 w-6 h-6" />
-                 <h2 className="text-xl font-black uppercase tracking-tight text-zinc-900">Garantías Clave</h2>
+                 <h2 className="text-xl font-bold tracking-tight text-zinc-900">Garantías Clave</h2>
               </div>
               
               <ul className="space-y-6">

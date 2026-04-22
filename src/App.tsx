@@ -67,23 +67,23 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Sidebar */}
       <div className={[
-        "fixed inset-y-0 left-0 z-50 w-72 bg-zinc-900 text-white transform transition-transform duration-300 ease-in-out flex flex-col shadow-2xl flex-shrink-0 md:static md:w-80 md:translate-x-0 border-r border-zinc-800",
+        "fixed inset-y-0 left-0 z-50 w-72 bg-white text-zinc-900 transform transition-transform duration-500 ease-in-out flex flex-col shadow-2xl flex-shrink-0 md:static md:w-80 md:translate-x-0 border-r border-zinc-100",
         isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
       ].join(" ")}>
-        <div className="p-6 bg-red-600 border-b-4 border-zinc-950">
+        <div className="p-8 bg-white">
           <div className="flex items-start justify-between">
-            <h1 className="text-3xl font-black tracking-tighter text-white leading-[0.85] uppercase">
-              Guía del <br/>Delegado<span className="text-zinc-900 block mt-2 text-xl">UGT Supervivencia</span>
+            <h1 className="text-2xl font-bold tracking-tight text-zinc-900 leading-tight">
+              Guía del <br/><span className="text-red-600 font-black">Delegado UGT</span>
+              <span className="text-zinc-400 block mt-1 text-xs font-medium uppercase tracking-widest">Manual de Supervivencia</span>
             </h1>
-            <button className="md:hidden text-white bg-zinc-900 hover:bg-black p-1 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
+            <button className="md:hidden text-zinc-400 hover:text-zinc-900 p-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
               <Icon name="X" className="w-6 h-6" />
             </button>
           </div>
         </div>
 
-        <nav className="flex-1 overflow-y-auto px-4 py-6 space-y-1 custom-scrollbar">
+        <nav className="flex-1 overflow-y-auto px-4 py-2 space-y-1 custom-scrollbar">
           {menuItems.map((item) => {
             const isActive = currentSection === item.id;
             return (
@@ -91,30 +91,32 @@ export default function App() {
                 key={item.id}
                 onClick={() => navigate(item.id)}
                 className={[
-                  "w-full flex items-center gap-3 px-4 py-3 text-left transition-colors font-black uppercase text-xs tracking-wider border-2",
-                  isActive ? "bg-white text-zinc-900 border-zinc-900 shadow-sm" : "text-zinc-400 border-transparent hover:bg-zinc-800 hover:text-white"
+                  "w-full flex items-center gap-3 px-4 py-3 text-left transition-all duration-200 font-bold text-sm rounded-xl",
+                  isActive 
+                    ? "bg-red-50 text-red-600 shadow-sm shadow-red-100" 
+                    : "text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900"
                 ].join(" ")}
               >
-                <Icon name={item.icon as any} className={["w-5 h-5 flex-shrink-0", isActive ? "text-red-600" : "text-zinc-500"].join(" ")} />
-                <span className="truncate">{item.title}</span>
+                <Icon name={item.icon as any} className={["w-5 h-5 flex-shrink-0 transition-colors", isActive ? "text-red-600" : "text-zinc-400"].join(" ")} />
+                <span>{item.title}</span>
               </button>
             );
           })}
           
-          <div className="mt-8 pt-4 border-t-2 border-zinc-800 space-y-2">
+          <div className="mt-8 pt-6 border-t border-zinc-100 space-y-2">
             <button 
               onClick={() => { setIsMobileMenuOpen(false); setIsPrinting(true); }}
-              className="w-full flex items-center justify-center gap-3 bg-red-600 hover:bg-zinc-100 text-white hover:text-red-600 p-3 border-2 border-transparent hover:border-red-600 font-black uppercase tracking-wider text-xs transition-colors"
+              className="w-full flex items-center justify-center gap-3 bg-red-600 hover:bg-red-700 text-white p-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-red-200"
             >
               <Icon name="FileText" className="w-5 h-5" />
-              <span>Descargar Guía (A4)</span>
+              <span>Descargar PDF (A4)</span>
             </button>
             <a 
               href="https://drive.google.com/file/d/1fADtMYZCTdJMUa1_WnTPwdfZJ9UnJkqX/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-3 bg-zinc-800 hover:bg-red-600 text-white p-3 border-2 border-zinc-700 hover:border-red-600 font-black uppercase tracking-wider text-xs transition-colors"
+              className="w-full flex items-center justify-center gap-3 bg-zinc-50 hover:bg-zinc-100 text-zinc-600 p-3 rounded-xl font-bold text-xs transition-colors border border-zinc-200"
             >
               <Icon name="Map" className="w-5 h-5" />
               <span>Descargar Tríptico</span>
@@ -122,23 +124,23 @@ export default function App() {
           </div>
         </nav>
         
-        <div className="p-6 bg-zinc-950 border-t-2 border-zinc-800 flex flex-col gap-2">
-          <p className="text-[10px] font-black uppercase tracking-widest text-zinc-400">UGT Servicios Públicos</p>
-          <p className="text-xs font-bold text-red-600">Salamanca</p>
+        <div className="p-8 bg-zinc-50/50 border-t border-zinc-100 flex flex-col gap-1">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">UGT Servicios Públicos</p>
+          <p className="text-sm font-black text-red-600">Salamanca</p>
         </div>
       </div>
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Mobile Header */}
-        <header className="md:hidden bg-white border-b-4 border-red-600 p-4 flex items-center justify-between shadow-sm sticky top-0 z-30">
+        <header className="md:hidden bg-white/80 backdrop-blur-md border-b border-zinc-100 p-4 flex items-center justify-between sticky top-0 z-30">
           <div className="flex items-center gap-3">
-             <div className="bg-red-600 text-white font-black px-2 py-1 text-sm">UGT</div>
-             <h1 className="font-black text-xl tracking-tighter uppercase leading-none">Guía<br/><span className="text-red-600">Delegado</span></h1>
+             <div className="bg-red-600 text-white font-black px-2 py-1 rounded text-xs">UGT</div>
+             <h1 className="font-bold text-lg tracking-tight text-zinc-900 leading-tight">Guía<span className="text-red-600 font-black">Delegado</span></h1>
           </div>
           <button 
             onClick={() => setIsMobileMenuOpen(true)}
-            className="p-2 bg-zinc-900 text-white hover:bg-zinc-800 transition-colors"
+            className="p-2 text-zinc-500 hover:bg-zinc-100 rounded-lg transition-colors"
           >
             <Icon name="Menu" className="w-6 h-6" />
           </button>
