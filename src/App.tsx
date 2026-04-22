@@ -134,7 +134,7 @@ export default function App() {
         <header className="md:hidden bg-white border-b-4 border-red-600 p-4 flex items-center justify-between shadow-sm sticky top-0 z-30">
           <div className="flex items-center gap-3">
              <div className="bg-red-600 text-white font-black px-2 py-1 text-sm">UGT</div>
-             <h1 className="font-black text-xl tracking-tighter uppercase leading-none truncate">Guía<br/><span className="text-red-600">Delegado</span></h1>
+             <h1 className="font-black text-xl tracking-tighter uppercase leading-none">Guía<br/><span className="text-red-600">Delegado</span></h1>
           </div>
           <button 
             onClick={() => setIsMobileMenuOpen(true)}
@@ -144,7 +144,7 @@ export default function App() {
           </button>
         </header>
 
-        <main className="flex-1 p-6 md:p-12 overflow-x-hidden">
+        <main className="flex-1 p-4 md:p-12 overflow-x-hidden break-words">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSection}

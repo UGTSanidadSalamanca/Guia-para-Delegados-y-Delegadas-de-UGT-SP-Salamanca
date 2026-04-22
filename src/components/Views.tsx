@@ -11,7 +11,7 @@ export function Dashboard() {
   return (
     <div className="space-y-8 animate-in fade-in zoom-in duration-500">
       <div className="bg-white p-6 md:p-10 shadow-sm border-2 border-zinc-900">
-        <h2 className="text-5xl font-black tracking-tighter leading-[0.9] uppercase text-zinc-900 mb-6">
+        <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.9] uppercase text-zinc-900 mb-6">
           ¡Bienvenido/a a la <br/><span className="text-red-600">primera línea!</span>
         </h2>
         <p className="text-zinc-600 text-lg font-bold leading-snug mb-8">
@@ -68,7 +68,7 @@ export function ModuleView({ moduleId }: { moduleId: string }) {
             <div className="bg-zinc-900 text-white p-3 shrink-0">
               <Icon name={module.icon} className="w-8 h-8" />
             </div>
-            <h2 className="text-5xl font-black tracking-tighter leading-[0.8] uppercase text-zinc-900">{module.title}</h2>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.8] uppercase text-zinc-900">{module.title}</h2>
           </div>
           {module.content.subtitle && (
             <p className="text-sm font-black leading-tight text-zinc-500 uppercase tracking-widest mt-6">{module.content.subtitle}</p>
@@ -131,7 +131,7 @@ export function ChecklistView() {
             <Icon name="ClipboardCheck" className="w-10 h-10" />
           </div>
           <div>
-            <h2 className="text-5xl font-black tracking-tighter leading-[0.8] uppercase text-zinc-900 mb-4">Checklist<br/><span className="text-red-600">Temporal</span></h2>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.8] uppercase text-zinc-900 mb-4">Checklist<br/><span className="text-red-600">Temporal</span></h2>
             <p className="text-zinc-500 font-bold uppercase tracking-widest text-[10px]">Plan de acción progresiva (6 Meses)</p>
           </div>
         </div>
@@ -199,7 +199,7 @@ export function TemplatesView() {
           <Icon name="FileText" className="w-10 h-10" />
         </div>
         <div>
-          <h2 className="text-5xl font-black tracking-tighter leading-[0.8] uppercase text-zinc-900 mb-4">Modelos <br/><span className="text-red-600">Adaptables</span></h2>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.8] uppercase text-zinc-900 mb-4">Modelos <br/><span className="text-red-600">Adaptables</span></h2>
           <p className="text-zinc-500 font-bold uppercase tracking-widest text-[10px]">Plantillas base (Copiar y pegar)</p>
         </div>
       </div>
@@ -246,7 +246,7 @@ export function FAQView() {
           <div className="inline-flex bg-zinc-900 text-white p-3 mb-6">
             <Icon name="MessageCircleQuestion" className="w-8 h-8" />
           </div>
-          <h2 className="text-5xl font-black tracking-tighter leading-[0.8] uppercase text-zinc-900">Preguntas<br/><span className="text-red-600">Rápidas</span></h2>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.8] uppercase text-zinc-900">Preguntas<br/><span className="text-red-600">Rápidas</span></h2>
         </div>
         <p className="text-zinc-500 font-bold uppercase tracking-widest text-[10px] md:text-right max-w-[200px]">Respuestas directas a dudas comunes</p>
       </div>
@@ -297,7 +297,7 @@ export function ConflictFlowView() {
            <Icon name="GitMerge" className="w-8 h-8" />
         </div>
         <div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tighter leading-[0.8] uppercase text-zinc-900 mb-4">Flujo de <br/><span className="text-red-600">Conflictos</span></h2>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.8] uppercase text-zinc-900 mb-4">Flujo de <br/><span className="text-red-600">Conflictos</span></h2>
           <p className="text-sm font-bold uppercase tracking-widest text-zinc-500">De lo interno a lo externo ante un problema laboral.</p>
         </div>
       </header>
@@ -337,7 +337,7 @@ export function MatrixView() {
            <Icon name="Table2" className="w-8 h-8" />
         </div>
         <div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tighter leading-[0.8] uppercase text-zinc-900 mb-4">Esquemas de<br/><span className="text-red-600">Representación</span></h2>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.8] uppercase text-zinc-900 mb-4">Esquemas de<br/><span className="text-red-600">Representación</span></h2>
           <p className="text-sm font-bold uppercase tracking-widest text-zinc-500">¿Qué figura soy y cómo se activa?</p>
         </div>
       </header>
@@ -404,7 +404,7 @@ export function EmergenciasView() {
              <Icon name="AlertTriangle" className="w-10 h-10" />
           </div>
           <div>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tighter leading-[0.8] uppercase text-white mb-2">Protocolos de<br/><span className="text-zinc-900">Emergencia</span></h2>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.8] uppercase text-white mb-2">Protocolos de<br/><span className="text-zinc-900">Emergencia</span></h2>
             <p className="text-sm font-bold uppercase tracking-widest text-red-200">Asistencia inmediata para situaciones críticas</p>
           </div>
         </div>
@@ -495,7 +495,7 @@ export function DirectorioView() {
            <Icon name="Phone" className="w-8 h-8" />
         </div>
         <div className="flex-1">
-          <h2 className="text-4xl md:text-5xl font-black tracking-tighter leading-[0.8] uppercase text-zinc-900 mb-4">Directorio<br/><span className="text-red-600">{directoryData.main.name.replace('UGT Servicios Públicos ', '')}</span></h2>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-[0.8] uppercase text-zinc-900 mb-4">Directorio<br/><span className="text-red-600">{directoryData.main.name.replace('UGT Servicios Públicos ', '')}</span></h2>
           <p className="text-sm font-bold uppercase tracking-widest text-zinc-500">Nunca actúes en solitario. Consulta a tu equipo.</p>
         </div>
       </header>
@@ -509,14 +509,14 @@ export function DirectorioView() {
             <p className="text-zinc-400 font-bold">{directoryData.main.address}</p>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto">
+        <div className="flex flex-col xl:flex-row gap-4 w-full xl:w-auto">
           <a href={`tel:${directoryData.main.phone.replace(/\s/g, '')}`} className="flex items-center gap-3 bg-zinc-800 hover:bg-red-600 p-4 transition-colors">
             <Icon name="Phone" className="w-5 h-5 text-red-500" />
             <span className="font-black tracking-widest">{directoryData.main.phone}</span>
           </a>
-          <a href={`mailto:${directoryData.main.email}`} className="flex items-center gap-3 bg-zinc-800 hover:bg-red-600 p-4 transition-colors">
-            <Icon name="Mail" className="w-5 h-5 text-red-500" />
-            <span className="font-bold text-sm tracking-wide">{directoryData.main.email}</span>
+          <a href={`mailto:${directoryData.main.email}`} className="flex items-center gap-3 bg-zinc-800 hover:bg-red-600 p-4 transition-colors min-w-0">
+            <Icon name="Mail" className="w-5 h-5 text-red-500 flex-shrink-0" />
+            <span className="font-bold text-sm tracking-wide break-all">{directoryData.main.email}</span>
           </a>
         </div>
       </div>
@@ -529,9 +529,9 @@ export function DirectorioView() {
             {directoryData.sectors.map((contact, idx) => (
               <a key={idx} href={`mailto:${contact.email}`} className="group bg-white border-2 border-zinc-200 hover:border-zinc-900 p-4 flex items-center justify-between transition-colors shadow-sm">
                 <span className="font-black text-zinc-800 uppercase tracking-tight">{contact.name}</span>
-                <div className="flex items-center gap-2 text-zinc-500 group-hover:text-red-600 transition-colors">
-                  <span className="text-xs font-bold truncate max-w-[150px] md:max-w-none">{contact.email}</span>
-                  <Icon name="Mail" className="w-4 h-4" />
+                <div className="flex items-center gap-2 text-zinc-500 group-hover:text-red-600 transition-colors min-w-0">
+                  <span className="text-[10px] font-bold break-all">{contact.email}</span>
+                  <Icon name="Mail" className="w-4 h-4 flex-shrink-0" />
                 </div>
               </a>
             ))}
@@ -545,9 +545,9 @@ export function DirectorioView() {
             {directoryData.transversal.map((contact, idx) => (
               <a key={idx} href={`mailto:${contact.email}`} className="group bg-white border-2 border-zinc-200 hover:border-zinc-900 p-4 flex items-center justify-between transition-colors shadow-sm">
                 <span className="font-black text-zinc-800 uppercase tracking-tight">{contact.name}</span>
-                <div className="flex items-center gap-2 text-zinc-500 group-hover:text-red-600 transition-colors">
-                  <span className="text-xs font-bold truncate max-w-[150px] md:max-w-none">{contact.email}</span>
-                  <Icon name="Mail" className="w-4 h-4" />
+                <div className="flex items-center gap-2 text-zinc-500 group-hover:text-red-600 transition-colors min-w-0">
+                  <span className="text-[10px] font-bold break-all">{contact.email}</span>
+                  <Icon name="Mail" className="w-4 h-4 flex-shrink-0" />
                 </div>
               </a>
             ))}
