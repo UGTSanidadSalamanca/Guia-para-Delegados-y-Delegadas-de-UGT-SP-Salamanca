@@ -1,5 +1,7 @@
 import { 
-  GoldenRule, ModuleData, ChecklistPhase, TemplateData, FAQData, MatrixRow, RightsLimitRow, FlowStep, CrisisStep
+  GoldenRule, ModuleData, ChecklistPhase, TemplateData, FAQData, 
+  MatrixRow, RightsLimitRow, FlowStep, DirectoryData, CrisisStep,
+  AppInfo, ResourceCategory
 } from './types';
 
 export const goldenRules: GoldenRule[] = [
@@ -499,5 +501,68 @@ export const crisisSteps: CrisisStep[] = [
       'Evita confrontaciones directas sin presencia de otro delegado.'
     ],
     isFinal: true
+  }
+];
+
+export const appInfo: AppInfo = {
+  desarrollador: "Enrique Sánchez Hernández",
+  cargo: "Secretario de Formación y Comunicación de UGT Servicios Públicos en Salamanca",
+  año: 2026
+};
+
+export const resourcesData: ResourceCategory[] = [
+  {
+    id: "estatutos",
+    title: "Estatutos, Normativa y Ética",
+    icon: "Shield",
+    links: [
+      { titulo: "Estatutos y Reglamentos de UGT Servicios Públicos", url: "https://ugt-sp.es/wp-content/uploads/2023/01/Estatutos_Federales_defi.pdf" },
+      { titulo: "Estatutos Federales (Resolución 2025)", url: "https://ugt-sp.es/wp-content/uploads/RESOLUCION-ESTATUTOS-06-JUNIO-2025-para-Web.pdf" },
+      { titulo: "Estatutos Confederales de UGT", url: "https://www.ugt.es/sites/default/files/portal-transparencia/ESTATUTOS%20CONFEDERALES-solo.pdf" },
+      { titulo: "Código Ético de UGT", url: "https://www.ugt.es/sites/default/files/descargas/UGT-CodigoEtico.pdf" },
+      { titulo: "Normativa Interna de UGT", url: "https://www.ugt.es/sites/default/files/normativa-interna-43-02092020-v2.pdf" }
+    ]
+  },
+  {
+    id: "manuales",
+    title: "Manuales para Delegados",
+    icon: "Archive",
+    links: [
+      { titulo: "Manual del Delegado de Prevención (UGT)", url: "https://www.ugt.es/sites/default/files/manual_actuacion_dp_web.pdf" }
+    ]
+  },
+  {
+    id: "legislacion",
+    title: "Legislación y Portales",
+    icon: "FileText",
+    links: [
+      { titulo: "Estatuto de los Trabajadores (Texto consolidado BOE)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2015-11430" },
+      { titulo: "Ley Orgánica de Libertad Sindical (LOLS)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-1985-16660" },
+      { titulo: "Ley de Prevención de Riesgos Laborales (LPRL)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292" },
+      { titulo: "Ley Reguladora de la Jurisdicción Social (LRJS)", url: "https://www.boe.es/buscar/act.php?id=BOE-A-2011-15936" },
+      { titulo: "Portal de Denuncias de la Inspección de Trabajo (OEITSS)", url: "https://oeitss.gob.es/tramites/personas-trabajadoras/denuncia" },
+      { titulo: "Registro de Convenios Colectivos (REGCON)", url: "https://expinterweb.mites.gob.es/regcon/" }
+    ]
+  },
+  {
+    id: "ambito",
+    title: "Ámbito Local y Sectorial",
+    icon: "Map",
+    links: [
+      { titulo: "UGT Salamanca (Unión Provincial)", url: "https://ugtcyl.es/web/uniones/ugt-salamanca" },
+      { titulo: "UGT Servicios Públicos Castilla y León", url: "https://castillayleon.ugt-sp.es/" },
+      { titulo: "Sección Sindical UGT - Diputación de Salamanca", url: "https://transparencia.lasalina.es/opencms/opencms/transparencia/organigramaylegislacion/sindicatos/ugt.html" },
+      { titulo: "UGT-SP Sector Sanidad", url: "https://ugt-sp.es/sectores/sanidad/" }
+    ]
+  },
+  {
+    id: "formacion",
+    title: "Formación y Jurisprudencia",
+    icon: "Zap",
+    links: [
+      { titulo: "Escuela Julián Besteiro (Formación Sindical)", url: "https://escuelajulianbesteiro.ugt.org/formacion-sindical-para-afiliados-delegados-y-cuadros-sindicales-de-ugt" },
+      { titulo: "Doctrina del Tribunal Constitucional sobre Libertad Sindical", url: "https://hj.tribunalconstitucional.es/es/Resolucion/Show/4253" },
+      { titulo: "Sentencia sobre Crédito Horario (Septiembre 2025)", url: "https://www.aparicioasociados.net/wp-content/uploads/2025/10/STS-18-septiembre-2025.pdf" }
+    ]
   }
 ];

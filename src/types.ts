@@ -100,3 +100,20 @@ export interface CrisisStep {
   options?: CrisisOption[];
   isFinal?: boolean;
 }
+export interface ResourceLink {
+  titulo: string;
+  url: string;
+}
+
+export interface ResourceCategory {
+  id: string;
+  title: string;
+  icon: IconName;
+  links: ResourceLink[];
+}
+
+export interface AppInfo {
+  desarrollador: string;
+  cargo: string;
+  año: number;
+}

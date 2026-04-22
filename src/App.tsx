@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Icon } from './components/Icon';
-import { modulesData } from './data';
+import { modulesData, appInfo } from './data';
 import { 
   Dashboard, ModuleView, ChecklistView, 
   TemplatesView, FAQView, ConflictFlowView, MatrixView,
-  EmergenciasView, DirectorioView
+  EmergenciasView, DirectorioView, ResourcesView
 } from './components/Views';
 import { PrintView } from './components/PrintView';
 import { TripticoView } from './components/TripticoView';
@@ -34,6 +34,7 @@ export default function App() {
     { id: 'modelos', title: 'Modelos Adaptables', icon: 'FileText' },
     { id: 'flujo', title: 'Flujo de Conflictos', icon: 'GitMerge' },
     { id: 'matriz', title: 'Mapas Representación', icon: 'Table2' },
+    { id: 'recursos', title: 'Biblioteca de Recursos', icon: 'Archive' },
     { id: 'faq', title: 'Preguntas Rápidas', icon: 'MessageCircleQuestion' },
     { id: 'emergencias', title: '🚨 Banderas Rojas', icon: 'AlertTriangle' },
     { id: 'directorio', title: '📞 Directorio Salamanca', icon: 'Phone' },
@@ -58,6 +59,7 @@ export default function App() {
     if (currentSection === 'emergencias') return <EmergenciasView />;
     if (currentSection === 'directorio') return <DirectorioView />;
     if (currentSection === 'faq') return <FAQView />;
+    if (currentSection === 'recursos') return <ResourcesView />;
     // Must be a module
     return <ModuleView moduleId={currentSection} />;
   };
@@ -179,9 +181,11 @@ export default function App() {
           </div>
         </nav>
         
-        <div className={["p-8 flex flex-col gap-1 border-t", isDarkMode ? "bg-zinc-800/10 border-zinc-800" : "bg-zinc-50/50 border-zinc-100"].join(" ")}>
-          <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">UGT Servicios Públicos</p>
-          <p className="text-sm font-black text-red-600">Salamanca</p>
+        <div className={["p-6 flex flex-col gap-1 border-t transition-colors", isDarkMode ? "bg-zinc-800/10 border-zinc-800" : "bg-zinc-50/50 border-zinc-100"].join(" ")}>
+          <p className="text-[9px] font-bold uppercase tracking-widest text-zinc-400">Desarrollado por</p>
+          <p className="text-sm font-black text-red-600 leading-tight">{appInfo.desarrollador}</p>
+          <p className="text-[9px] font-bold text-zinc-500 dark:text-zinc-400 leading-tight mt-0.5">{appInfo.cargo}</p>
+          <p className="text-[9px] font-black text-zinc-300 dark:text-zinc-600 mt-2">Versión {appInfo.año} • UGT Salamanca</p>
         </div>
       </div>
 

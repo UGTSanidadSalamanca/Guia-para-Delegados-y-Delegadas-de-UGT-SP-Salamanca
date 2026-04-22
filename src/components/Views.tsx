@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Icon } from './Icon';
 import { 
   goldenRules, modulesData, checklistPhases, 
-  templatesData, faqsData, repMatrixData, rightsLimitsData, flowStepsData, directoryData, crisisSteps
+  templatesData, faqsData, repMatrixData, rightsLimitsData, flowStepsData, directoryData, crisisSteps, resourcesData
 } from '../data';
 import { ChecklistItem, CrisisStep } from '../types';
 
@@ -653,6 +653,60 @@ export function DirectorioView() {
             ))}
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+export function ResourcesView() {
+  return (
+    <div className="max-w-5xl mx-auto animate-in slide-in-from-bottom-4 duration-500 space-y-12">
+      <header className="bg-white dark:bg-zinc-900 p-10 rounded-[2.5rem] shadow-2xl shadow-zinc-200/50 dark:shadow-none border border-zinc-100 dark:border-zinc-800 flex items-center gap-8">
+        <div className="bg-red-600 text-white p-6 rounded-3xl shadow-xl shadow-red-200 dark:shadow-none shrink-0">
+          <Icon name="Archive" className="w-10 h-10" />
+        </div>
+        <div>
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-zinc-900 dark:text-white mb-2">Biblioteca de <span className="text-red-600">Recursos</span></h2>
+          <p className="text-sm font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">Documentación oficial, normativa y herramientas externas.</p>
+        </div>
+      </header>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {resourcesData.map((category) => (
+          <div key={category.id} className="bg-white dark:bg-zinc-900 rounded-[2rem] border border-zinc-100 dark:border-zinc-800 overflow-hidden flex flex-col shadow-xl shadow-zinc-200/40 dark:shadow-none">
+            <div className="p-8 border-b border-zinc-50 dark:border-zinc-800 bg-zinc-50/50 dark:bg-black/20 flex items-center gap-4">
+              <div className="bg-white dark:bg-zinc-800 p-3 rounded-2xl shadow-md">
+                <Icon name={category.icon} className="w-6 h-6 text-red-600" />
+              </div>
+              <h3 className="text-xl font-black text-zinc-900 dark:text-white tracking-tight">{category.title}</h3>
+            </div>
+            <div className="p-4 flex-1">
+              <div className="space-y-1">
+                {category.links.map((link, idx) => (
+                  <a 
+                    key={idx} 
+                    href={link.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between p-4 rounded-xl hover:bg-zinc-50 dark:hover:bg-zinc-800 group transition-all"
+                  >
+                    <span className="text-sm font-bold text-zinc-700 dark:text-zinc-300 group-hover:text-red-600 transition-colors">{link.titulo}</span>
+                    <Icon name="Eye" className="w-4 h-4 text-zinc-300 dark:text-zinc-600 group-hover:text-red-600 transition-all opacity-0 group-hover:opacity-100 transform translate-x-2 group-hover:translate-x-0" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="bg-zinc-900 dark:bg-black rounded-[2.5rem] p-12 text-center border-b-8 border-red-600 shadow-2xl">
+        <Icon name="Shield" className="w-12 h-12 text-red-600 mx-auto mb-6" />
+        <h3 className="text-2xl font-black text-white mb-4">Blinda tu Acción Sindical</h3>
+        <p className="text-zinc-400 max-w-2xl mx-auto text-sm leading-relaxed font-medium">
+          Toda la documentación aquí enlazada es pública y constituye la base legal de nuestra representatividad. 
+          Consulta estas fuentes ante cualquier duda interpretativa con la empresa.
+        </p>
       </div>
     </div>
   );
