@@ -141,13 +141,16 @@ export default function App() {
               <Icon name="FileText" className="w-5 h-5" />
               <span>Manual Completo (PDF)</span>
             </button>
-            <button 
-              onClick={() => { setIsMobileMenuOpen(false); setIsPrintingTriptico(true); }}
+            <a 
+              href="https://drive.google.com/file/d/1fADtMYZCTdJMUa1_WnTPwdfZJ9UnJkqX/view?usp=drive_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
               className="w-full flex items-center justify-center gap-3 bg-zinc-900 hover:bg-black text-white p-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-zinc-200"
             >
               <Icon name="Map" className="w-5 h-5" />
-              <span>Ver/Imprimir Tríptico</span>
-            </button>
+              <span>Descargar Tríptico (Google Drive)</span>
+            </a>
           </div>
         </nav>
         
