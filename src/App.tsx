@@ -98,8 +98,8 @@ export default function App() {
         <div className={["p-8", isDarkMode ? "bg-zinc-900" : "bg-white"].join(" ")}>
           <div className="flex flex-col gap-6">
             <img 
-              src="https://castillayleon.ugt-sp.es/wp-content/uploads/2021/04/Logo-UGT-Servicios-Publicos-1-300x122.png" 
-              alt="Logo UGT Servicios Públicos" 
+              src="https://www.ugt.es/sites/default/files/logo_policromo_header_ugt.png" 
+              alt="Logo UGT" 
               className={["h-14 w-auto object-contain self-start", isDarkMode ? "brightness-0 invert opacity-90" : ""].join(" ")}
             />
             <div className="flex items-start justify-between">
@@ -215,7 +215,7 @@ export default function App() {
         ].join(" ")}>
           <div className="flex items-center gap-4">
              <img 
-               src="https://castillayleon.ugt-sp.es/wp-content/uploads/2021/04/Logo-UGT-Servicios-Publicos-1-300x122.png" 
+               src="https://www.ugt.es/sites/default/files/logo_policromo_header_ugt.png" 
                alt="UGT" 
                className={["h-10 w-auto object-contain", isDarkMode ? "brightness-0 invert" : ""].join(" ")} 
              />
