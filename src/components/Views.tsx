@@ -14,23 +14,23 @@ function CrisisWizard() {
   const reset = () => setCurrentStepId('start');
 
   return (
-    <div className="bg-zinc-900 dark:bg-zinc-800/80 text-white p-8 md:p-12 rounded-[3rem] shadow-2xl relative overflow-hidden ring-4 ring-red-600/20">
-      <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+    <div className="bg-white dark:bg-zinc-900 p-6 md:p-10 rounded-[2.5rem] border-2 border-red-100 dark:border-red-900/30 shadow-xl shadow-red-50 dark:shadow-none relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-32 h-32 bg-red-600/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl" />
       
       <div className="relative z-10">
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-4">
-            <div className="bg-red-600 p-3 rounded-2xl shadow-xl shadow-red-900/40">
-              <Icon name="ShieldAlert" className="w-8 h-8 text-white" />
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-3">
+            <div className="bg-red-600 p-2 rounded-xl shadow-lg shadow-red-200 dark:shadow-none">
+              <Icon name="ShieldAlert" className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h3 className="text-2xl font-black tracking-tight leading-none">Asistente de Crisis</h3>
-              <p className="text-red-400 text-xs font-bold uppercase tracking-widest mt-1">Mago de Acción Rápida</p>
+              <h3 className="text-xl font-black tracking-tight text-zinc-900 dark:text-white leading-none">Asistente de Crisis</h3>
+              <p className="text-red-600 dark:text-red-400 text-[10px] font-bold uppercase tracking-widest mt-1">Acción Rápida</p>
             </div>
           </div>
           {currentStepId !== 'start' && (
-            <button onClick={reset} className="text-zinc-400 hover:text-white transition-colors flex items-center gap-2 text-sm font-bold">
-              <Icon name="ArrowDown" className="w-4 h-4 rotate-90" /> Reiniciar
+            <button onClick={reset} className="text-zinc-400 hover:text-red-600 transition-colors flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
+              <Icon name="ArrowDown" className="w-3 h-3 rotate-90" /> Reiniciar
             </button>
           )}
         </div>
@@ -38,45 +38,45 @@ function CrisisWizard() {
         <AnimatePresence mode="wait">
           <motion.div 
             key={currentStepId}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            className="space-y-6"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="space-y-4"
           >
             <div>
-              <h4 className="text-3xl font-black mb-3">{currentStep.title}</h4>
-              <p className="text-zinc-400 text-lg leading-relaxed">{currentStep.description}</p>
+              <h4 className="text-2xl font-black text-zinc-900 dark:text-white mb-2">{currentStep.title}</h4>
+              <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium leading-relaxed">{currentStep.description}</p>
             </div>
 
             {currentStep.actions.length > 0 && (
-               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 my-4">
                  {currentStep.actions.map((action, i) => (
-                   <div key={i} className="flex gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
-                     <Icon name="CheckCircle2" className="w-5 h-5 text-red-500 shrink-0" />
-                     <p className="text-sm font-medium text-zinc-300 leading-snug">{action}</p>
+                   <div key={i} className="flex gap-3 bg-zinc-50 dark:bg-zinc-800/50 p-3 rounded-xl border border-zinc-100 dark:border-zinc-800">
+                     <Icon name="CheckCircle2" className="w-4 h-4 text-red-600 shrink-0 mt-0.5" />
+                     <p className="text-[13px] font-bold text-zinc-600 dark:text-zinc-300 leading-snug">{action}</p>
                    </div>
                  ))}
                </div>
             )}
 
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-2 pt-2">
               {currentStep.options?.map((opt) => (
                 <button
                   key={opt.nextStepId}
                   onClick={() => setCurrentStepId(opt.nextStepId)}
-                  className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-2xl font-black text-sm transition-all shadow-lg shadow-red-900/20 active:scale-95"
+                  className="bg-zinc-100 dark:bg-zinc-800 hover:bg-red-600 dark:hover:bg-red-600 hover:text-white text-zinc-600 dark:text-zinc-300 px-5 py-3 rounded-xl font-bold text-xs transition-all active:scale-95 border border-zinc-200 dark:border-zinc-700 hover:border-red-600"
                 >
                   {opt.label}
                 </button>
               ))}
               {currentStep.isFinal && (
-                 <div className="w-full flex flex-col md:flex-row gap-4 mt-6">
-                    <a href={`tel:${directoryData.main.phone.replace(/\s/g, '')}`} className="flex-1 bg-white text-zinc-900 p-4 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-zinc-100 transition-colors">
-                       <Icon name="Phone" className="w-5 h-5 text-red-600" /> Llamar a UGT Salamanca
+                 <div className="w-full flex flex-col md:flex-row gap-3 mt-4">
+                    <a href={`tel:${directoryData.main.phone.replace(/\s/g, '')}`} className="flex-1 bg-red-600 text-white p-4 rounded-xl font-bold text-sm flex items-center justify-center gap-3 hover:bg-red-700 transition-colors shadow-lg shadow-red-200 dark:shadow-none">
+                       <Icon name="Phone" className="w-5 h-5" /> Llamar a UGT Salamanca
                     </a>
                     {currentStep.templateId && (
-                       <div className="flex-1 bg-zinc-800 text-white p-4 rounded-2xl font-bold flex items-center justify-center gap-3 border border-white/10 italic text-sm">
-                          <Icon name="FileText" className="w-5 h-5 text-red-500" /> Plantilla recomendada disponible
+                       <div className="flex-1 bg-zinc-50 dark:bg-zinc-800/50 text-zinc-500 dark:text-zinc-400 p-4 rounded-xl font-bold flex items-center justify-center gap-3 border border-zinc-100 dark:border-zinc-800 italic text-xs">
+                          <Icon name="FileText" className="w-4 h-4 text-red-600" /> Plantilla recomendada disponible
                        </div>
                     )}
                  </div>
@@ -110,8 +110,6 @@ export function Dashboard() {
         </div>
       </div>
 
-      <CrisisWizard />
-
       <div className="pt-8">
         <h3 className="text-3xl font-black text-zinc-900 dark:text-white mb-8 tracking-tight flex items-center gap-4">
           <div className="bg-red-600 text-white p-3 rounded-2xl shadow-xl shadow-red-200 dark:shadow-none">
@@ -139,6 +137,8 @@ export function Dashboard() {
           ))}
         </div>
       </div>
+
+      <CrisisWizard />
     </div>
   );
 }

@@ -449,7 +449,10 @@ export const crisisSteps: CrisisStep[] = [
       { label: 'Carta de Despido / Sanción', nextStepId: 'despido' },
       { label: 'Modificación de Horario / Turno', nextStepId: 'horario' },
       { label: 'Accidente Laboral', nextStepId: 'accidente' },
-      { label: 'Acoso o Conflicto Grave', nextStepId: 'acoso' }
+      { label: 'Impago de Salarios', nextStepId: 'impago' },
+      { label: 'Acoso o Conflicto Grave', nextStepId: 'acoso' },
+      { label: 'Inspección de Trabajo', nextStepId: 'inspeccion' },
+      { label: 'Huelga / Paro Urgente', nextStepId: 'huelga' }
     ]
   },
   {
@@ -499,6 +502,43 @@ export const crisisSteps: CrisisStep[] = [
       'Informa a la Federación de UGT de forma confidencial.',
       'Recomienda a la persona afectada que no borre ningún mensaje/email.',
       'Evita confrontaciones directas sin presencia de otro delegado.'
+    ],
+    isFinal: true
+  },
+  {
+    id: 'impago',
+    title: 'Impago de Salarios',
+    description: 'El salario es un derecho fundamental y su falta es falta grave.',
+    actions: [
+      'Recopila todas las nóminas impagadas.',
+      'Presenta escrito de reclamación interna solicitando fecha de abono.',
+      'Recuerda que tienes 1 año para reclamar cantidades.',
+      'Si el impago es generalizado, contacta con la asesoría jurídica.'
+    ],
+    templateId: 'req-info',
+    isFinal: true
+  },
+  {
+    id: 'inspeccion',
+    title: 'Inspección de Trabajo',
+    description: 'Presencia de un Inspector/a en el centro de trabajo.',
+    actions: [
+      'Acompaña al Inspector/a en todo momento (tienes derecho legal).',
+      'Responde con la verdad pero de forma concisa.',
+      'Anota qué documentos pide y qué áreas visita.',
+      'Informa inmediatamente a la sede de UGT sobre la visita.'
+    ],
+    isFinal: true
+  },
+  {
+    id: 'huelga',
+    title: 'Huelga / Paro Urgente',
+    description: 'La huelga es un derecho constitucional protegido.',
+    actions: [
+      'Verifica que la convocatoria sea legal y esté registrada.',
+      'No impidas físicamente el acceso, pero ejerce el derecho al piquete informativo.',
+      'Controla que no haya esquiroles (trabajadores de otras áreas o empresas).',
+      'Documenta cualquier presión o amenaza de la empresa.'
     ],
     isFinal: true
   }
