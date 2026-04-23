@@ -120,6 +120,7 @@ export default function App() {
             </div>
           </div>
         </div>
+      </div>
 
         <div className="px-6 mb-6">
           <div className="relative group">
