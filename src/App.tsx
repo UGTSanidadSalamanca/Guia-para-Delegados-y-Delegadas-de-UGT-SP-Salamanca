@@ -96,12 +96,18 @@ export default function App() {
         isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
       ].join(" ")}>
         <div className={["p-8", isDarkMode ? "bg-zinc-900" : "bg-white"].join(" ")}>
-          <div className="flex items-start justify-between">
-            <h1 className={["text-2xl font-bold tracking-tight leading-tight", isDarkMode ? "text-white" : "text-zinc-900"].join(" ")}>
-              Guía del <br/><span className="text-red-600 font-black">Delegado UGT</span>
-              <span className="text-zinc-400 block mt-1 text-xs font-medium uppercase tracking-widest">Manual de Supervivencia</span>
-            </h1>
-            <div className="flex items-center gap-2">
+          <div className="flex flex-col gap-6">
+            <img 
+              src="https://castillayleon.ugt-sp.es/wp-content/uploads/2021/04/Logo-UGT-Servicios-Publicos-1-300x122.png" 
+              alt="Logo UGT Servicios Públicos" 
+              className={["h-14 w-auto object-contain self-start", isDarkMode ? "brightness-0 invert opacity-90" : ""].join(" ")}
+            />
+            <div className="flex items-start justify-between">
+              <h1 className={["text-2xl font-bold tracking-tight leading-tight", isDarkMode ? "text-white" : "text-zinc-900"].join(" ")}>
+                Guía del <br/><span className="text-red-600 font-black">Delegado UGT</span>
+                <span className="text-zinc-400 block mt-1 text-xs font-medium uppercase tracking-widest">Manual de Supervivencia</span>
+              </h1>
+              <div className="flex items-center gap-2">
               <button 
                 onClick={() => setIsDarkMode(!isDarkMode)}
                 className={["p-2 rounded-xl transition-colors", isDarkMode ? "bg-zinc-800 text-yellow-400 hover:bg-zinc-700" : "bg-zinc-100 text-zinc-500 hover:bg-zinc-200"].join(" ")}
@@ -203,18 +209,22 @@ export default function App() {
       <div className="flex-1 flex flex-col min-w-0">
         {/* Mobile Header */}
         <header className={[
-          "md:hidden backdrop-blur-xl border-b p-5 flex items-center justify-between sticky top-0 z-30 transition-all duration-300",
+          "md:hidden backdrop-blur-xl border-b p-4 flex items-center justify-between sticky top-0 z-30 transition-all duration-300",
           isDarkMode ? "bg-zinc-950/80 border-zinc-800" : "bg-white/90 border-zinc-100 shadow-sm shadow-zinc-100/50"
         ].join(" ")}>
-          <div className="flex flex-col">
-             <h1 className={["font-bold text-lg tracking-tight leading-tight", isDarkMode ? "text-white" : "text-zinc-900"].join(" ")}>
-               Guía del <span className="text-red-600 font-black">Delegado UGT</span>
-             </h1>
-             <div className="flex items-center gap-1.5 mt-0.5">
-               <div className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
-               <span className="text-zinc-400 block text-[9px] font-black uppercase tracking-widest">
-                 {menuItems.find(m => m.id === currentSection)?.title || 'Módulo'}
-               </span>
+          <div className="flex items-center gap-4">
+             <img 
+               src="https://castillayleon.ugt-sp.es/wp-content/uploads/2021/04/Logo-UGT-Servicios-Publicos-1-300x122.png" 
+               alt="UGT" 
+               className={["h-10 w-auto object-contain", isDarkMode ? "brightness-0 invert" : ""].join(" ")} 
+             />
+             <div className="flex flex-col">
+                <h1 className={["font-bold text-sm tracking-tight leading-tight", isDarkMode ? "text-white" : "text-zinc-900"].join(" ")}>
+                  Guía <span className="text-red-600 font-black">Delegado</span>
+                </h1>
+                <span className="text-zinc-400 block text-[7px] font-black uppercase tracking-widest leading-none mt-0.5">
+                  {menuItems.find(m => m.id === currentSection)?.title || 'Módulo'}
+                </span>
              </div>
           </div>
           <div className="flex items-center gap-3">
