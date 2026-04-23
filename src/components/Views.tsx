@@ -149,16 +149,16 @@ export function ModuleView({ moduleId }: { moduleId: string }) {
   if (!module) return <div>Module not found</div>;
 
   return (
-    <div className="max-w-4xl mx-auto space-y-10 animate-in slide-in-from-right-4 duration-500">
-      <header className="bg-white dark:bg-zinc-900 p-10 rounded-[2.5rem] shadow-2xl shadow-zinc-200/50 dark:shadow-none border border-zinc-100 dark:border-zinc-800 flex flex-col md:flex-row md:items-center justify-between gap-6">
-        <div className="flex items-center gap-6">
-          <div className="bg-red-600 text-white p-5 rounded-3xl shadow-xl shadow-red-200 dark:shadow-none shrink-0">
-            <Icon name={module.icon} className="w-10 h-10" />
+    <div className="max-w-4xl mx-auto space-y-8 md:space-y-10 animate-in slide-in-from-right-4 duration-500">
+      <header className="bg-white dark:bg-zinc-900 p-8 md:p-10 rounded-[2.5rem] shadow-2xl shadow-zinc-200/50 dark:shadow-none border border-zinc-100 dark:border-zinc-800 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="flex items-center gap-5 md:gap-6">
+          <div className="bg-red-600 text-white p-4 md:p-5 rounded-2xl md:rounded-3xl shadow-xl shadow-red-200 dark:shadow-none shrink-0">
+            <Icon name={module.icon} className="w-8 h-8 md:w-10 md:h-10" />
           </div>
           <div>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-zinc-900 dark:text-white leading-tight">{module.title}</h2>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-zinc-900 dark:text-white leading-tight">{module.title}</h2>
             {module.content.subtitle && (
-              <p className="text-sm font-bold text-red-600 dark:text-red-400 uppercase tracking-widest mt-2">{module.content.subtitle}</p>
+              <p className="text-[10px] md:text-sm font-bold text-red-600 dark:text-red-400 uppercase tracking-widest mt-1 md:mt-2">{module.content.subtitle}</p>
             )}
           </div>
         </div>
@@ -166,9 +166,9 @@ export function ModuleView({ moduleId }: { moduleId: string }) {
 
       <div className="space-y-8">
         {module.content.sections.map((section, idx) => (
-          <div key={idx} className="bg-white dark:bg-zinc-900 p-10 rounded-[2.5rem] shadow-xl shadow-zinc-200/40 dark:shadow-none border border-zinc-50 dark:border-zinc-800">
-            <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-8 flex items-center gap-4">
-              <span className="bg-zinc-100 dark:bg-zinc-800 text-zinc-400 dark:text-zinc-500 w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold">{idx + 1}</span> 
+          <div key={idx} className="bg-white dark:bg-zinc-900 p-8 md:p-10 rounded-[2.5rem] shadow-xl shadow-zinc-200/40 dark:shadow-none border border-zinc-50 dark:border-zinc-800">
+            <h3 className="text-xl md:text-2xl font-bold text-zinc-900 dark:text-white mb-6 md:mb-8 flex items-center gap-4">
+              <span className="bg-zinc-100 dark:bg-zinc-800 text-zinc-400 dark:text-zinc-500 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-xs md:text-sm font-bold">{idx + 1}</span> 
               {section.heading}
             </h3>
             <ul className="space-y-6">
@@ -213,14 +213,14 @@ export function ChecklistView() {
 
   return (
     <div className="max-w-4xl mx-auto animate-in fade-in duration-500">
-      <div className="bg-white dark:bg-zinc-900 p-10 rounded-[2.5rem] shadow-2xl shadow-zinc-200/50 dark:shadow-none border border-zinc-100 dark:border-zinc-800 mb-10">
-        <div className="flex items-center gap-8 mb-10">
-          <div className="bg-red-600 text-white p-6 rounded-3xl shadow-xl shadow-red-200 dark:shadow-none">
-            <Icon name="ClipboardCheck" className="w-10 h-10" />
+      <div className="bg-white dark:bg-zinc-900 p-8 md:p-10 rounded-[2.5rem] shadow-2xl shadow-zinc-200/50 dark:shadow-none border border-zinc-100 dark:border-zinc-800 mb-10">
+        <div className="flex items-center gap-6 md:gap-8 mb-8 md:mb-10">
+          <div className="bg-red-600 text-white p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl shadow-red-200 dark:shadow-none shrink-0">
+            <Icon name="ClipboardCheck" className="w-8 h-8 md:w-10 md:h-10" />
           </div>
           <div>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-zinc-900 dark:text-white mb-2">Checklist <span className="text-red-600">Temporal</span></h2>
-            <p className="text-zinc-500 dark:text-zinc-500 font-bold uppercase tracking-widest text-[10px]">Plan de acción progresiva (6 Meses)</p>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-zinc-900 dark:text-white mb-1 md:mb-2">Checklist <span className="text-red-600">Temporal</span></h2>
+            <p className="text-zinc-500 dark:text-zinc-500 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Plan de acción progresiva (6 Meses)</p>
           </div>
         </div>
 
@@ -282,13 +282,13 @@ export function TemplatesView() {
 
   return (
     <div className="max-w-4xl mx-auto animate-in slide-in-from-bottom-4 duration-500 space-y-10">
-      <header className="bg-white dark:bg-zinc-900 p-10 rounded-[2.5rem] shadow-2xl shadow-zinc-200/50 dark:shadow-none border border-zinc-100 dark:border-zinc-800 flex items-center gap-8">
-        <div className="bg-red-600 text-white p-6 rounded-3xl shadow-xl shadow-red-200 dark:shadow-none shrink-0">
-          <Icon name="FileText" className="w-10 h-10" />
+      <header className="bg-white dark:bg-zinc-900 p-8 md:p-10 rounded-[2.5rem] shadow-2xl shadow-zinc-200/50 dark:shadow-none border border-zinc-100 dark:border-zinc-800 flex items-center gap-6 md:gap-8">
+        <div className="bg-red-600 text-white p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl shadow-red-200 dark:shadow-none shrink-0">
+          <Icon name="FileText" className="w-8 h-8 md:w-10 md:h-10" />
         </div>
         <div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-zinc-900 dark:text-white mb-2">Modelos <span className="text-red-600">Adaptables</span></h2>
-          <p className="text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-widest text-[10px]">Plantillas base (Copiar y pegar)</p>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-zinc-900 dark:text-white mb-1 md:mb-2">Modelos <span className="text-red-600">Adaptables</span></h2>
+          <p className="text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-widest text-[9px] md:text-[10px]">Plantillas base (Copiar y pegar)</p>
         </div>
       </header>
 
@@ -328,14 +328,14 @@ export function FAQView() {
 
   return (
     <div className="max-w-4xl mx-auto animate-in fade-in duration-500">
-      <header className="bg-white dark:bg-zinc-900 p-10 rounded-[2.5rem] shadow-2xl shadow-zinc-200/50 dark:shadow-none border border-zinc-100 dark:border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-8 mb-10">
-        <div className="flex items-center gap-6">
-          <div className="bg-red-600 text-white p-5 rounded-3xl shadow-xl shadow-red-200 dark:shadow-none shrink-0">
-            <Icon name="MessageCircleQuestion" className="w-10 h-10" />
+      <header className="bg-white dark:bg-zinc-900 p-8 md:p-10 rounded-[2.5rem] shadow-2xl shadow-zinc-200/50 dark:shadow-none border border-zinc-100 dark:border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 mb-10">
+        <div className="flex items-center gap-5 md:gap-6 w-full md:w-auto">
+          <div className="bg-red-600 text-white p-4 md:p-5 rounded-2xl md:rounded-3xl shadow-xl shadow-red-200 dark:shadow-none shrink-0">
+            <Icon name="MessageCircleQuestion" className="w-8 h-8 md:w-10 md:h-10" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-zinc-900 dark:text-white">Preguntas <span className="text-red-600">Rápidas</span></h2>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-zinc-900 dark:text-white">Preguntas <span className="text-red-600">Rápidas</span></h2>
         </div>
-        <p className="text-zinc-500 dark:text-zinc-500 font-bold uppercase tracking-widest text-[10px] md:text-right max-w-[150px]">Respuestas directas a dudas comunes</p>
+        <p className="text-zinc-500 dark:text-zinc-500 font-bold uppercase tracking-widest text-[9px] md:text-[10px] md:text-right max-w-full md:max-w-[150px] w-full md:w-auto">Respuestas directas a dudas comunes</p>
       </header>
 
       <div className="space-y-6">
@@ -379,13 +379,13 @@ export function FAQView() {
 export function ConflictFlowView() {
   return (
     <div className="max-w-4xl mx-auto animate-in slide-in-from-right-4 duration-500 space-y-10">
-      <header className="bg-white dark:bg-zinc-900 p-10 rounded-[2.5rem] shadow-2xl shadow-zinc-200/50 dark:shadow-none border border-zinc-100 dark:border-zinc-800 flex items-center gap-8">
-        <div className="bg-red-600 text-white p-6 rounded-3xl shadow-xl shadow-red-200 dark:shadow-none shrink-0">
-          <Icon name="GitMerge" className="w-10 h-10" />
+      <header className="bg-white dark:bg-zinc-900 p-8 md:p-10 rounded-[2.5rem] shadow-2xl shadow-zinc-200/50 dark:shadow-none border border-zinc-100 dark:border-zinc-800 flex items-center gap-6 md:gap-8">
+        <div className="bg-red-600 text-white p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl shadow-red-200 dark:shadow-none shrink-0">
+          <Icon name="GitMerge" className="w-8 h-8 md:w-10 md:h-10" />
         </div>
         <div>
-          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-zinc-900 dark:text-white mb-2">Flujo de <span className="text-red-600">Conflictos</span></h2>
-          <p className="text-sm font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">De lo interno a lo externo ante un problema laboral.</p>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tight text-zinc-900 dark:text-white mb-1 md:mb-2">Flujo de <span className="text-red-600">Conflictos</span></h2>
+          <p className="text-[10px] md:text-sm font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">De lo interno a lo externo ante un problema laboral.</p>
         </div>
       </header>
 

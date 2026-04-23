@@ -193,22 +193,41 @@ export default function App() {
       <div className="flex-1 flex flex-col min-w-0">
         {/* Mobile Header */}
         <header className={[
-          "md:hidden backdrop-blur-md border-b p-4 flex items-center justify-between sticky top-0 z-30 transition-colors",
-          isDarkMode ? "bg-zinc-950/80 border-zinc-800" : "bg-white/80 border-zinc-100"
+          "md:hidden backdrop-blur-xl border-b p-5 flex items-center justify-between sticky top-0 z-30 transition-all duration-300",
+          isDarkMode ? "bg-zinc-950/80 border-zinc-800" : "bg-white/90 border-zinc-100 shadow-sm shadow-zinc-100/50"
         ].join(" ")}>
-          <div className="flex items-center gap-3">
-             <div className="bg-red-600 text-white font-black px-2 py-1 rounded text-xs">UGT</div>
-             <h1 className={["font-bold text-lg tracking-tight leading-tight", isDarkMode ? "text-white" : "text-zinc-900"].join(" ")}>Guía<span className="text-red-600 font-black">Delegado</span></h1>
+          <div className="flex flex-col">
+             <h1 className={["font-bold text-lg tracking-tight leading-tight", isDarkMode ? "text-white" : "text-zinc-900"].join(" ")}>
+               Guía del <span className="text-red-600 font-black">Delegado UGT</span>
+             </h1>
+             <div className="flex items-center gap-1.5 mt-0.5">
+               <div className="w-1.5 h-1.5 rounded-full bg-red-600 animate-pulse" />
+               <span className="text-zinc-400 block text-[9px] font-black uppercase tracking-widest">
+                 {menuItems.find(m => m.id === currentSection)?.title || 'Módulo'}
+               </span>
+             </div>
           </div>
-          <button 
-            onClick={() => setIsMobileMenuOpen(true)}
-            className={["p-2 rounded-lg transition-colors", isDarkMode ? "text-zinc-400 hover:bg-zinc-800" : "text-zinc-500 hover:bg-zinc-100"].join(" ")}
-          >
-            <Icon name="Menu" className="w-6 h-6" />
-          </button>
+          <div className="flex items-center gap-3">
+            <button 
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              className={["p-2.5 rounded-xl transition-all active:scale-95", isDarkMode ? "bg-zinc-800 text-yellow-400" : "bg-zinc-100 text-zinc-500"].join(" ")}
+            >
+              <Icon name={isDarkMode ? "Star" : "Star"} className="w-5 h-5" />
+            </button>
+            <button 
+              onClick={() => setIsMobileMenuOpen(true)}
+              className={["p-2.5 rounded-xl transition-all active:scale-95 shadow-lg", 
+                isDarkMode 
+                  ? "bg-red-600 text-white shadow-red-900/20" 
+                  : "bg-red-600 text-white shadow-red-200"
+              ].join(" ")}
+            >
+              <Icon name="Menu" className="w-6 h-6" />
+            </button>
+          </div>
         </header>
 
-        <main className="flex-1 p-4 md:p-12 overflow-x-hidden break-words">
+        <main className="flex-1 p-6 md:p-12 overflow-x-hidden break-words">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSection}
