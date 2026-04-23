@@ -173,10 +173,20 @@ export default function App() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-3 bg-zinc-900 dark:bg-black hover:bg-black text-white p-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-zinc-200 dark:shadow-none border border-transparent dark:border-zinc-800"
+              className="w-full flex items-center justify-center gap-3 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white p-4 rounded-xl font-bold text-sm transition-all border border-zinc-200 dark:border-zinc-700"
             >
               <Icon name="Map" className="w-5 h-5" />
-              <span>Descargar Tríptico (Google Drive)</span>
+              <span>Descargar Tríptico (Drive)</span>
+            </a>
+            <a 
+              href="https://www.ugt.es/ficha-de-afiliacion"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 text-white p-4 rounded-xl font-black text-sm transition-all shadow-lg shadow-red-200 dark:shadow-none border border-red-500/20"
+            >
+              <Icon name="UserPlus" className="w-5 h-5" />
+              <span>¡AFÍLIATE A UGT!</span>
             </a>
           </div>
         </nav>

@@ -130,9 +130,20 @@ export function Dashboard() {
                 </div>
                 <h4 className="text-xl font-bold text-zinc-900 dark:text-white tracking-tight">{rule.title}</h4>
               </div>
-              <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium leading-relaxed">
+              <p className="text-zinc-500 dark:text-zinc-400 text-sm font-medium leading-relaxed mb-6">
                 {rule.description}
               </p>
+              {rule.id === 'afiliacion' && (
+                <a 
+                  href="https://www.ugt.es/ficha-de-afiliacion" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="mt-auto inline-flex items-center justify-center gap-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2.5 rounded-xl text-xs font-black transition-all shadow-md shadow-red-200 dark:shadow-none active:scale-95"
+                >
+                  <Icon name="UserPlus" className="w-4 h-4" />
+                  ¡Afíliate ahora!
+                </a>
+              )}
             </motion.div>
           ))}
         </div>
