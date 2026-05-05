@@ -635,7 +635,7 @@ export const crisisSteps: CrisisStep[] = [
 
 export const appInfo: AppInfo = {
   desarrollador: "Enrique Sánchez Hernández",
-  cargo: "Secretario de Formación y Comunicación de UGT Servicios Públicos en Salamanca",
+  cargo: "Secretaría de Formación y Comunicación de UGT Servicios Públicos en Salamanca",
   año: 2026
 };
 
