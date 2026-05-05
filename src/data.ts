@@ -215,6 +215,95 @@ export const modulesData: ModuleData[] = [
         }
       ]
     }
+  },
+  {
+    id: 'modulo-6',
+    title: 'Representación en la Empresa',
+    icon: 'Users',
+    content: {
+      subtitle: 'Órganos unitarios y sindicales de representación',
+      sections: [
+        {
+          heading: 'Representación Unitaria (Elegida por la plantilla)',
+          body: [
+            'Delegados de Personal: En empresas o centros de hasta 49 trabajadores (1 o 3 delegados).',
+            'Comité de Empresa: Órgano colegiado en centros de 50 o más trabajadores. Se rige por las reglas de la mayoría.'
+          ]
+        },
+        {
+          heading: 'Representación Sindical (Elegida por la afiliación)',
+          body: [
+            'Secciones Sindicales: Agrupan a todos los afiliados a UGT en la empresa. Tienen derecho a reunirse, recaudar cuotas y distribuir información.',
+            'Delegados Sindicales: Representan a la Sección Sindical (en empresas de más de 250 trabajadores). Tienen garantías equiparables al Comité.'
+          ]
+        },
+        {
+          heading: 'Derechos de Información y Consulta',
+          body: [
+            'Evolución económica: Derecho a ser informado trimestralmente sobre la situación de la empresa y sector.',
+            'Contratación: Derecho a recibir la copia básica de los contratos en un plazo de 10 días.',
+            'Vigilancia y Control: Capacidad de vigilar el cumplimiento normativo en temas laborales, seguridad social, empleo e igualdad.'
+          ]
+        }
+      ]
+    }
+  },
+  {
+    id: 'modulo-7',
+    title: 'Negociación Colectiva',
+    icon: 'Handshake',
+    content: {
+      subtitle: 'La herramienta fundamental para mejorar las condiciones',
+      sections: [
+        {
+          heading: 'El Convenio Colectivo',
+          body: [
+            'Estatutarios: Cumplen los requisitos del Estatuto de los Trabajadores. Tienen eficacia general (aplican a toda la plantilla).',
+            'Extraestatutarios: Tienen eficacia limitada solo a los trabajadores afiliados a los sindicatos firmantes.'
+          ]
+        },
+        {
+          heading: 'Inaplicación del Convenio (Descuelgue)',
+          body: [
+            'La empresa puede inaplicar ciertas condiciones (jornada, turnos, salario) por causas económicas, técnicas, organizativas o de producción.',
+            'Requiere un periodo de consultas previo con la representación legal de los trabajadores.'
+          ]
+        },
+        {
+          heading: 'Las Comisiones Paritarias',
+          body: [
+            'Órgano encargado de la aplicación e interpretación del convenio colectivo.',
+            'Cualquier duda sobre el convenio debe pasar por esta comisión antes de acudir a la vía judicial o extrajudicial.'
+          ]
+        }
+      ]
+    }
+  },
+  {
+    id: 'modulo-8',
+    title: 'Seguridad y Salud (PRL)',
+    icon: 'Shield',
+    content: {
+      subtitle: 'La protección de la salud en el trabajo es prioritaria',
+      sections: [
+        {
+          heading: 'Los Delegados de Prevención',
+          body: [
+            'Son los representantes de los trabajadores con funciones específicas en materia de prevención de riesgos en el trabajo.',
+            'Son designados por y entre los representantes del personal, conforme a la escala establecida en la ley.',
+            'Tienen derecho a acompañar a los técnicos en las evaluaciones, tener acceso a la información sobre riesgos y paralizar la actividad en caso de riesgo grave e inminente.'
+          ]
+        },
+        {
+          heading: 'El Comité de Seguridad y Salud',
+          body: [
+            'Es el órgano paritario (igual número de representantes de la empresa y de los trabajadores) destinado a la consulta regular y periódica de las actuaciones de la empresa en prevención.',
+            'Se constituye en todas las empresas o centros de trabajo que cuenten con 50 o más trabajadores.',
+            'Debe reunirse trimestralmente y siempre que lo solicite alguna de las representaciones en el mismo.'
+          ]
+        }
+      ]
+    }
   }
 ];
 
@@ -568,6 +657,7 @@ export const resourcesData: ResourceCategory[] = [
     title: "Manuales para Delegados",
     icon: "Archive",
     links: [
+      { titulo: "Guía Oficial del Delegado Sindical UGT (PDF)", url: "/GUIA-DEL-DELEGADO-SINDICAL_compressed-1-33.pdf" },
       { titulo: "Manual del Delegado de Prevención (UGT)", url: "https://www.ugt.es/sites/default/files/manual_actuacion_dp_web.pdf" }
     ]
   },

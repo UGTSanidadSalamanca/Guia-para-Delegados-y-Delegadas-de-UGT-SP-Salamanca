@@ -7,7 +7,7 @@ import {
   ChevronDown, ChevronRight, Menu, X, LayoutDashboard,
   GitMerge, Table2, ShieldAlert, ArrowDown,
   AlertTriangle, Timer, Phone, Mail, MapPin, Activity, FileWarning, Shield, Printer, Smartphone,
-  Search, SearchX
+  Search, SearchX, Users, Handshake
 } from 'lucide-react';
 import { IconName } from '../types';
 
@@ -20,7 +20,7 @@ export const Icon = ({ name, className = '' }: { name: IconName; className?: str
     ChevronDown, ChevronRight, Menu, X,
     LayoutDashboard, GitMerge, Table2, ShieldAlert, ArrowDown,
     AlertTriangle, Timer, Phone, Mail, MapPin, Activity, FileWarning, Shield,
-    Printer, Smartphone, Search, SearchX
+    Printer, Smartphone, Search, SearchX, Users, Handshake
   };
   const LucideIcon = icons[name];
   return LucideIcon ? <LucideIcon className={className} /> : null;

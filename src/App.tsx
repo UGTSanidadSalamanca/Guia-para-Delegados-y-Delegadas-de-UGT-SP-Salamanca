@@ -172,9 +172,19 @@ export default function App() {
               onClick={() => { setIsMobileMenuOpen(false); setIsPrinting(true); }}
               className="w-full flex items-center justify-center gap-3 bg-red-600 hover:bg-red-700 text-white p-4 rounded-xl font-bold text-sm transition-all shadow-lg shadow-red-200 dark:shadow-none"
             >
-              <Icon name="FileText" className="w-5 h-5" />
-              <span>Manual Completo (PDF)</span>
+              <Icon name="Printer" className="w-5 h-5" />
+              <span>Imprimir Resumen</span>
             </button>
+            <a 
+              href="/GUIA-DEL-DELEGADO-SINDICAL_compressed-1-33.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="w-full flex items-center justify-center gap-3 bg-zinc-800 hover:bg-zinc-900 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 p-4 rounded-xl font-bold text-sm transition-all shadow-lg"
+            >
+              <Icon name="FileText" className="w-5 h-5" />
+              <span>Guía Oficial UGT (PDF)</span>
+            </a>
             <a 
               href="https://drive.google.com/file/d/1fADtMYZCTdJMUa1_WnTPwdfZJ9UnJkqX/view?usp=drive_link"
               target="_blank"
