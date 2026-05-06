@@ -258,22 +258,55 @@ export const modulesData: ModuleData[] = [
         {
           heading: 'El Convenio Colectivo',
           body: [
-            'Estatutarios: Cumplen los requisitos del Estatuto de los Trabajadores. Tienen eficacia general (aplican a toda la plantilla).',
-            'Extraestatutarios: Tienen eficacia limitada solo a los trabajadores afiliados a los sindicatos firmantes.'
+            'Estatutarios: Tienen eficacia general o "erga omnes" (aplican a toda la plantilla, independientemente de si está afiliada).',
+            'Extraestatutarios: Tienen eficacia limitada solo a los trabajadores afiliados a los sindicatos firmantes o que se adhieran expresamente. Se rigen por el Código Civil.',
+            'IMPORTANTE: Un convenio extraestatutario no puede contener condiciones peores que el convenio estatutario vigente en perjuicio del trabajador.'
           ]
         },
         {
-          heading: 'Inaplicación del Convenio (Descuelgue)',
+          heading: 'Procedimiento de Negociación: Plazos Clave',
           body: [
-            'La empresa puede inaplicar ciertas condiciones (jornada, turnos, salario) por causas económicas, técnicas, organizativas o de producción.',
-            'Requiere un periodo de consultas previo con la representación legal de los trabajadores.'
+            'Inicio: Se requiere un convenio vencido y denunciado, o inexistencia de convenio aplicable.',
+            'Solicitud de negociación: comunicación escrita expresando legitimación, ámbitos y materias a negociar.',
+            'Constitución de la mesa negociadora: plazo máximo de 1 mes desde la recepción de la solicitud.',
+            'Envío del acuerdo a la autoridad laboral: 15 días desde la firma para trámite de registro.',
+            'Publicación en el B.O. correspondiente: la autoridad laboral dispone de 20 días para publicarlo.',
+            'El número máximo de miembros de la mesa negociadora es de 15 por cada parte en convenios sectoriales y 13 en convenios de empresa.'
           ]
         },
         {
-          heading: 'Las Comisiones Paritarias',
+          heading: 'Inaplicación del Convenio (Descuelgue) — Art. 82.3 ET',
           body: [
-            'Órgano encargado de la aplicación e interpretación del convenio colectivo.',
-            'Cualquier duda sobre el convenio debe pasar por esta comisión antes de acudir a la vía judicial o extrajudicial.'
+            'La empresa puede inaplicar ciertas condiciones del convenio por causas económicas (pérdidas, reducción de ingresos 2 trimestres consecutivos), técnicas, organizativas o de producción.',
+            'Materias susceptibles de descuelgue: jornada, horario, turnos, sistema de remuneración, funciones y mejoras voluntarias de la Seguridad Social.',
+            'Periodo de consultas previo máximo de 15 días con los representantes legales de los trabajadores.',
+            'Si no hay acuerdo: Comisión Paritaria del convenio (7 días), luego VASAC/SIMA y en última instancia la CCNCC (Comisión Consultiva Nacional de Convenios Colectivos).',
+            'El acuerdo de descuelgue debe notificarse a la Comisión Paritaria y a la Autoridad Laboral y publicarse en el Boletín correspondiente.'
+          ]
+        },
+        {
+          heading: 'Vigencia, Prórroga y Ultraactividad',
+          body: [
+            'La duración del convenio la fijan las partes libremente. No existe duración mínima ni máxima en la ley.',
+            'Prórroga automática: salvo pacto en contrario, los convenios se prorrogan de año en año si no media denuncia expresa (art. 86.1 ET).',
+            'Ultraactividad: tras la denuncia del convenio, si no se alcanza acuerdo en 1 año, pierde vigencia y se aplica el convenio de ámbito superior, salvo cláusula expresa de ultraactividad en el propio convenio.',
+            'Las cláusulas de ultraactividad pactadas en el convenio son válidas y deben respetarse.'
+          ]
+        },
+        {
+          heading: 'Las Comisiones Paritarias y el VASAC',
+          body: [
+            'Órgano paritario para la aplicación e interpretación del convenio durante su vigencia. Es contenido mínimo obligatorio del convenio (art. 85.3.e ET).',
+            'Cualquier conflicto debe pasar primero por la Comisión Paritaria antes de acudir al VASAC o a la vía judicial.',
+            'VASAC (Acuerdo sobre Solución Autónoma de Conflictos): regula la mediación obligatoria y el arbitraje voluntario ante el SIMA para conflictos colectivos. La mediación ante el SIMA sustituye a la conciliación administrativa previa.'
+          ]
+        },
+        {
+          heading: 'Cómo Participar en tu Convenio',
+          body: [
+            'Durante la negociación: escucha las reivindicaciones de los trabajadores y hazlas llegar al sindicato; participa en las reuniones convocadas por la Federación; informa a la plantilla del contenido de la plataforma reivindicativa y de la marcha de las negociaciones.',
+            'Durante su vigencia: observa y garantiza el cumplimiento de lo pactado usando todos los recursos: Comisión Paritaria, VASAC/SIMA, Inspección de Trabajo y jurisdicción social.',
+            'Detecta las dificultades de interpretación del convenio para mejorar la redacción en la siguiente negociación.'
           ]
         }
       ]
@@ -297,9 +330,74 @@ export const modulesData: ModuleData[] = [
         {
           heading: 'El Comité de Seguridad y Salud',
           body: [
-            'Es el órgano paritario (igual número de representantes de la empresa y de los trabajadores) destinado a la consulta regular y periódica de las actuaciones de la empresa en prevención.',
-            'Se constituye en todas las empresas o centros de trabajo que cuenten con 50 o más trabajadores.',
+            'Es el órgano paritario destinado a la consulta regular y periódica de las actuaciones de la empresa en prevención.',
+            'Se constituye en todas las empresas o centros de trabajo con 50 o más trabajadores.',
             'Debe reunirse trimestralmente y siempre que lo solicite alguna de las representaciones en el mismo.'
+          ]
+        }
+      ]
+    }
+  },
+  {
+    id: 'modulo-9',
+    title: 'Estructura de UGT',
+    icon: 'Network',
+    content: {
+      subtitle: 'Conoce tu organización: quiénes somos y cómo funcionamos',
+      sections: [
+        {
+          heading: 'La UGT: Quiénes Somos',
+          body: [
+            'La Unión General de Trabajadores (UGT), constituida en 1888, es un sindicato de clase, progresista, democrático e independiente de gobiernos, partidos y empresarios.',
+            'Es uno de los dos sindicatos más representativos de España. Su legitimidad procede de las elecciones sindicales periódicas en las empresas.',
+            'La UGT es fundadora de la Confederación Sindical Internacional (CSI) y de la Confederación Europea de Sindicatos (CES).',
+            'Defiende los intereses de todos los trabajadores: fijos, temporales, en desempleo, jubilados o en búsqueda de primer empleo.'
+          ]
+        },
+        {
+          heading: 'Estructura Territorial y Profesional',
+          body: [
+            'La UGT se organiza en dos estructuras complementarias: la profesional (por sectores productivos) y la territorial (por CC.AA., provincias y comarcas).',
+            'Estructura profesional: FICA (Industria, Construcción y Agro), FESMC (Servicios, Movilidad y Consumo) y SP-UGT (Empleados de los Servicios Públicos).',
+            'Las Federaciones se encargan de la negociación colectiva sectorial, atención a problemas sectoriales y asesoramiento sindical a delegados y comités de empresa.'
+          ]
+        },
+        {
+          heading: 'La Federación de Servicios Públicos (SP-UGT)',
+          body: [
+            'Agrupa a los trabajadores de: Administración del Estado, Administración Autonómica y Local, Postal, Salud, Atención Social, Servicios Públicos de Gestión Privada y Enseñanza (privada y pública).',
+            'Sus órganos son: el Congreso Federal (órgano supremo, cada 4 años), el Comité Federal (entre Congresos, 2 veces/año), la Comisión Ejecutiva Federal o CEF (dirección permanente) y el Consejo Federal (órgano consultivo).',
+            'Web de la Federación Territorial de Castilla y León: https://www.castillayleon.ugt-sp.es — allí encontrarás comunicados, convenios colectivos firmados, informes y datos de contacto de todas las secretarías y secciones sindicales.'
+          ]
+        }
+      ]
+    }
+  },
+  {
+    id: 'modulo-10',
+    title: 'Permisos Retribuidos',
+    icon: 'Clock',
+    content: {
+      subtitle: 'Permisos del ET y del Convenio de Dependencia que debes conocer',
+      sections: [
+        {
+          heading: 'Otros Permisos Retribuidos del ET (Art. 37)',
+          body: [
+            '1 día por traslado del domicilio habitual.',
+            'Tiempo indispensable para el cumplimiento de un deber inexcusable de carácter público y personal (incluido el ejercicio del voto). Si el deber ocupa más del 20% de las horas laborables en 3 meses, la empresa puede pasar al trabajador a excedencia.',
+            'Para realizar funciones sindicales o de representación del personal en los términos legales o convencionales.',
+            'Tiempo indispensable para exámenes prenatales y técnicas de preparación al parto.',
+            'Hasta 4 días por imposibilidad de acceder al centro de trabajo por causas de fuerza mayor (catástrofes, restricciones de movilidad). Transcurridos los 4 días, el permiso se prolonga hasta que desaparezcan las circunstancias.',
+            'Fuerza mayor familiar: derecho a ausentarse por motivos familiares urgentes (enfermedad o accidente de familiar o conviviente que requiera presencia inmediata). Son retribuidas las horas equivalentes a 4 días al año.'
+          ]
+        },
+        {
+          heading: 'Permisos del Convenio Marco Estatal de Dependencia',
+          body: [
+            '4 días de libre disposición al año, considerados a todos los efectos como días efectivamente trabajados.',
+            'Se solicitan con un mínimo de 7 días de antelación (3 días en caso de urgencia). La empresa puede denegar la fecha por razones organizativas justificadas, comunicándolo con al menos 48 horas de antelación.',
+            'En todo caso, el personal disfrutará de estos 4 días antes del 15 de enero del año siguiente.',
+            'Se requiere un periodo de trabajo previo de 3 meses por cada día de libre disposición.'
           ]
         }
       ]
