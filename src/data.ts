@@ -755,7 +755,7 @@ export const resourcesData: ResourceCategory[] = [
     title: "Manuales para Delegados",
     icon: "Archive",
     links: [
-      { titulo: "Guía Oficial del Delegado Sindical UGT (PDF)", url: "/GUIA-DEL-DELEGADO-SINDICAL_compressed-1-33.pdf" },
+      { titulo: "Guía Oficial del Delegado Sindical UGT (Web oficial SP-CyL)", url: "https://castillayleon.ugt-sp.es/guia-del-delegado-sindical/" },
       { titulo: "Manual del Delegado de Prevención (UGT)", url: "https://www.ugt.es/sites/default/files/manual_actuacion_dp_web.pdf" }
     ]
   },

@@ -176,14 +176,14 @@ export default function App() {
               <span>Imprimir Resumen</span>
             </button>
             <a 
-              href="/GUIA-DEL-DELEGADO-SINDICAL_compressed-1-33.pdf"
+              href="https://castillayleon.ugt-sp.es/guia-del-delegado-sindical/"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
               className="w-full flex items-center justify-center gap-3 bg-zinc-800 hover:bg-zinc-900 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 p-4 rounded-xl font-bold text-sm transition-all shadow-lg"
             >
               <Icon name="FileText" className="w-5 h-5" />
-              <span>Guía Oficial UGT (PDF)</span>
+              <span>Guía Oficial UGT (Web)</span>
             </a>
             <a 
               href="https://drive.google.com/file/d/1fADtMYZCTdJMUa1_WnTPwdfZJ9UnJkqX/view?usp=drive_link"
