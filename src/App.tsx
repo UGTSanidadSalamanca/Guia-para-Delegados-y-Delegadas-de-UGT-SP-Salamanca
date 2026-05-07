@@ -193,7 +193,7 @@ export default function App() {
               className="w-full flex items-center justify-center gap-3 bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white p-4 rounded-xl font-bold text-sm transition-all border border-zinc-200 dark:border-zinc-700"
             >
               <Icon name="Map" className="w-5 h-5" />
-              <span>Descargar Tríptico (Drive)</span>
+              <span>Descargar Tríptico</span>
             </a>
             <a 
               href="https://www.ugt.es/ficha-de-afiliacion"
