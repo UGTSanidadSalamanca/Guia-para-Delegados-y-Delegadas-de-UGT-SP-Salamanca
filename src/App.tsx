@@ -186,7 +186,7 @@ export default function App() {
               <span>Guía Oficial UGT (Web)</span>
             </a>
             <a 
-              href="https://drive.google.com/file/d/11W-dBjSs-gN8BXeHxiYc60UfK-nP1tFK/view?usp=link"
+              href="https://drive.google.com/file/d/1zITmQ9s4zaCgFlv6aT0sI18-MdFJuqqg/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
