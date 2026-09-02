@@ -149,6 +149,45 @@ export function Dashboard() {
         </div>
       </div>
 
+      {/* TARJETA DESTACADA ELECCIONES SINDICALES */}
+      <div className="bg-gradient-to-br from-red-600 to-red-800 text-white p-8 md:p-10 rounded-[2.5rem] shadow-2xl shadow-red-200/50 dark:shadow-none relative overflow-hidden">
+        <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-white/5 pointer-events-none" />
+        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-3 max-w-xl">
+            <span className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3.5 py-1 rounded-full text-xs font-black uppercase tracking-wider text-white">
+              <Icon name="ClipboardCheck" className="w-3.5 h-3.5" />
+              Herramienta Clave
+            </span>
+            <h3 className="text-2xl md:text-3xl font-black tracking-tight text-white">
+              🗳️ Elecciones Sindicales UGT
+            </h3>
+            <p className="text-red-100 text-sm md:text-base font-medium leading-relaxed">
+              Calculadora interactiva de representantes, simulador de escrutinio D'Hondt, calendarios de plazos, modelos oficiales y manual descargable en PDF.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row md:flex-col gap-3 shrink-0">
+            <a
+              href="https://guiaeleccionesugt.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 bg-white hover:bg-zinc-100 text-red-700 px-6 py-3.5 rounded-2xl text-sm font-black shadow-lg transition-all active:scale-95"
+            >
+              <Icon name="Zap" className="w-4 h-4" />
+              <span>Abrir Webapp Interactiva</span>
+            </a>
+            <a
+              href="https://drive.google.com/file/d/1FR-c149ZreyTDFrO0BVf2-I-TpKZdfxe/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2.5 bg-red-950/40 hover:bg-red-950/60 text-white border border-white/20 px-6 py-3.5 rounded-2xl text-sm font-bold transition-all active:scale-95"
+            >
+              <Icon name="FileText" className="w-4 h-4" />
+              <span>Descargar Manual (PDF)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <CrisisWizard />
     </div>
   );
@@ -183,17 +222,73 @@ export function ModuleView({ moduleId }: { moduleId: string }) {
               {section.heading}
             </h3>
             <ul className="space-y-6">
-              {section.body.map((paragraph, pIdx) => (
-                <li key={pIdx} className="flex gap-5 text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
-                  <div className="mt-1.5 flex-shrink-0">
-                    <div className="w-2 h-2 rounded-full bg-red-600 shadow-[0_0_10px_rgba(227,6,19,0.3)]" />
-                  </div>
-                  <span className="text-base">{paragraph}</span>
-                </li>
-              ))}
+              {section.body.map((paragraph, pIdx) => {
+                const urlRegex = /(https?:\/\/[^\s]+)/g;
+                const parts = paragraph.split(urlRegex);
+
+                return (
+                  <li key={pIdx} className="flex gap-5 text-zinc-500 dark:text-zinc-400 font-medium leading-relaxed">
+                    <div className="mt-1.5 flex-shrink-0">
+                      <div className="w-2 h-2 rounded-full bg-red-600 shadow-[0_0_10px_rgba(227,6,19,0.3)]" />
+                    </div>
+                    <span className="text-base">
+                      {parts.map((part, i) => 
+                        part.match(urlRegex) ? (
+                          <a
+                            key={i}
+                            href={part}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-red-600 dark:text-red-400 hover:underline font-bold break-all"
+                          >
+                            {part}
+                          </a>
+                        ) : (
+                          part
+                        )
+                      )}
+                    </span>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}
+
+        {moduleId === 'modulo-11' && (
+          <div className="bg-gradient-to-br from-red-600 to-red-800 p-8 md:p-10 rounded-[2.5rem] text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-2 text-center md:text-left">
+              <span className="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider text-white">
+                <Icon name="ClipboardCheck" className="w-3.5 h-3.5" />
+                Herramientas Oficiales
+              </span>
+              <h4 className="text-2xl font-black text-white">Manual Interactivo de Elecciones</h4>
+              <p className="text-red-100 text-sm max-w-md">
+                Calculadora de representantes, simulador D'Hondt, calendario de plazos y modelos para delegados.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full md:w-auto">
+              <a 
+                href="https://guiaeleccionesugt.netlify.app/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-white text-red-700 px-6 py-3.5 rounded-2xl font-black text-sm hover:bg-zinc-100 shadow-md transition-all active:scale-95 text-center"
+              >
+                <Icon name="Zap" className="w-4 h-4" />
+                <span>Abrir Webapp</span>
+              </a>
+              <a 
+                href="https://drive.google.com/file/d/1FR-c149ZreyTDFrO0BVf2-I-TpKZdfxe/view?usp=sharing" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-red-950/40 text-white border border-white/20 px-6 py-3.5 rounded-2xl font-bold text-sm hover:bg-red-950/60 transition-all active:scale-95 text-center"
+              >
+                <Icon name="FileText" className="w-4 h-4" />
+                <span>Descargar PDF</span>
+              </a>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

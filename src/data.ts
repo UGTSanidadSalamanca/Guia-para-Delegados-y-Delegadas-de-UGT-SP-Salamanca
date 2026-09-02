@@ -402,6 +402,64 @@ export const modulesData: ModuleData[] = [
         }
       ]
     }
+  },
+  {
+    id: 'modulo-11',
+    title: '🗳️ Elecciones Sindicales',
+    icon: 'ClipboardCheck',
+    content: {
+      subtitle: 'La base de tu poder representativo: cómo se organizan y ganan las elecciones',
+      sections: [
+        {
+          heading: '¿Qué son y por qué importan?',
+          body: [
+            'Las elecciones sindicales son el mecanismo democrático por el que los trabajadores eligen a sus representantes (Delegados de Personal o miembros del Comité de Empresa).',
+            'Su resultado determina qué sindicatos son más representativos y por tanto quiénes participan en la negociación colectiva, el diálogo social y los acuerdos con la Administración.',
+            'Para UGT, cada voto y cada acta de elecciones sindicales es la fuente directa de su legitimidad y su capacidad de representación. Ganar elecciones = más fuerza negociadora.'
+          ]
+        },
+        {
+          heading: 'Quién puede convocarlas y cuándo',
+          body: [
+            'Pueden promoverlas: las organizaciones sindicales más representativas, las que cuenten con al menos el 10% de representantes en la empresa, y los propios trabajadores (33% de la plantilla, con un mínimo de 3 personas).',
+            'El preaviso debe presentarse ante la oficina pública dependiente de la autoridad laboral con al menos 10 días hábiles de antelación al inicio del proceso.',
+            'Los mandatos son de 4 años. Pueden convocarse nuevas elecciones antes de su finalización si así lo acuerdan los legitimados.'
+          ]
+        },
+        {
+          heading: 'Requisitos para ser candidato/a',
+          body: [
+            'Tener más de 18 años y una antigüedad mínima de 3 meses en la empresa (salvo que el convenio establezca otro plazo).',
+            'No haber sido objeto de sanción firme de suspensión de empleo y sueldo en el último año.',
+            'Las listas deben presentarse en los plazos establecidos en el calendario electoral ante la Mesa Electoral.'
+          ]
+        },
+        {
+          heading: 'El escrutinio: Sistema D\'Hondt (Comités de Empresa)',
+          body: [
+            'Para los Comités de Empresa (50+ trabajadores), los votos se cuentan por el sistema proporcional D\'Hondt.',
+            'Cómo funciona: los votos de cada candidatura se dividen sucesivamente por 1, 2, 3... y los puestos se asignan a los cocientes más altos hasta cubrir todos los escaños.',
+            'Ejemplo con 3 puestos: UGT 100 votos, CCOO 60 votos → cocientes: UGT (100, 50, 33), CCOO (60, 30). Resultado: UGT 2 escaños, CCOO 1.',
+            'Para Delegados de Personal (menos de 50 trabajadores): sistema mayoritario, gana quien más votos obtiene individualmente.'
+          ]
+        },
+        {
+          heading: 'La Mesa Electoral',
+          body: [
+            'La Mesa Electoral gestiona todo el proceso: admite candidaturas, supervisa la votación, realiza el escrutinio y levanta el acta.',
+            'Está formada por el trabajador de mayor antigüedad, el de mayor edad y el de menor edad en la empresa.',
+            'Cualquier incidencia, impugnación de candidatura o reclamación debe dirigirse a la Mesa Electoral en los plazos establecidos.'
+          ]
+        },
+        {
+          heading: '🔧 Herramienta Interactiva: Manual de Elecciones UGT',
+          body: [
+            'Accede a la webapp oficial con calculadora de representantes, simulador de escrutinio D\'Hondt, calendarios de plazos y modelos de documentos: https://guiaeleccionesugt.netlify.app/',
+            'Descarga el manual completo en PDF: https://drive.google.com/file/d/1FR-c149ZreyTDFrO0BVf2-I-TpKZdfxe/view?usp=sharing'
+          ]
+        }
+      ]
+    }
   }
 ];
 
@@ -790,6 +848,15 @@ export const resourcesData: ResourceCategory[] = [
       { titulo: "Escuela Julián Besteiro (Formación Sindical)", url: "https://escuelajulianbesteiro.ugt.org/formacion-sindical-para-afiliados-delegados-y-cuadros-sindicales-de-ugt" },
       { titulo: "Doctrina del Tribunal Constitucional sobre Libertad Sindical", url: "https://hj.tribunalconstitucional.es/es/Resolucion/Show/4253" },
       { titulo: "Sentencia sobre Crédito Horario (Septiembre 2025)", url: "https://www.aparicioasociados.net/wp-content/uploads/2025/10/STS-18-septiembre-2025.pdf" }
+    ]
+  },
+  {
+    id: "elecciones",
+    title: "🗳️ Elecciones Sindicales",
+    icon: "ClipboardCheck",
+    links: [
+      { titulo: "Manual Interactivo de Elecciones UGT (Webapp: calculadora, simulador D'Hondt, modelos)", url: "https://guiaeleccionesugt.netlify.app/" },
+      { titulo: "Manual de Elecciones Sindicales UGT (Descargar PDF)", url: "https://drive.google.com/file/d/1FR-c149ZreyTDFrO0BVf2-I-TpKZdfxe/view?usp=sharing" }
     ]
   }
 ];
